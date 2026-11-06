@@ -1,0 +1,164 @@
+{
+  "torque": {
+    "misconception": "A larger force always produces a larger turning effect, regardless of its line of action",
+    "focus": "Identify the pivot and perpendicular distance to the force line before calculating torque.",
+    "activity": "Draw a pivot and three equal force arrows: radial, perpendicular and oblique. Predict the turning effect, then calculate r F sin(theta). Change one force direction at a time and record your torque predictions before calculating.",
+    "recall": "Close the resource. Sketch a case with nonzero force and zero torque, then explain why.",
+    "diagnostic": {
+      "prompt": "A force acts along a rod toward its pivot. Does it turn the rod? Explain how you would find the moment arm, then calculate torque for a perpendicular 4 N force at 0.5 m.",
+      "rubric": [
+        "Recognizes zero torque for a force line through the pivot",
+        "Explains perpendicular distance to the line of action",
+        "Calculates 2 N m for the perpendicular force"
+      ],
+      "kinds": [
+        "recognition",
+        "understanding",
+        "execution"
+      ]
+    },
+    "assessments": [
+      {
+        "id": "torque-transfer-1",
+        "prompt": "A 0.4 m spanner receives 15 N at 30 degrees to its length. Find torque magnitude and compare with the same force directed along the spanner. Explain the difference.",
+        "answer": "3 N m; along the spanner gives zero because its force line passes through the pivot.",
+        "rubric": [
+          "Uses the perpendicular component or moment arm",
+          "Obtains 3 N m",
+          "Explains zero torque for the radial force"
+        ]
+      },
+      {
+        "id": "torque-transfer-2",
+        "prompt": "A cable pulls with 20 N on a beam 0.6 m from its pivot at 30 degrees to the beam. Calculate torque. Would a 40 N pull through the pivot do better?",
+        "answer": "6 N m; the 40 N force through the pivot has zero moment arm and zero torque.",
+        "rubric": [
+          "Uses r F sin(theta)",
+          "Obtains 6 N m",
+          "Explains why 40 N through the pivot produces zero torque"
+        ]
+      },
+      {
+        "id": "torque-retention-3",
+        "prompt": "A 10 N tangential push acts 0.3 m from a wheel axle. Compare it with a 30 N radial push at the rim. Explain and calculate each torque.",
+        "answer": "Tangential: 3 N m. Radial: zero, as its force line crosses the axle.",
+        "rubric": [
+          "Identifies perpendicular distance",
+          "Calculates 3 N m and zero",
+          "Explains force magnitude alone is insufficient"
+        ]
+      }
+    ],
+    "content": "Torque measures turning effect about a chosen pivot. Its magnitude is force times the perpendicular distance from pivot to the force line: tau = r F sin(theta). A force directed through the pivot has zero torque. To solve: mark the pivot, extend the force line, draw the perpendicular distance, then assign clockwise or anticlockwise sign. Practice: sketch equal forces at several angles and rank their torque before computing.",
+    "translations": {
+      "hi": {
+        "content": "बल आघूर्ण किसी चुने हुए धुरी बिंदु के चारों ओर घुमाने के प्रभाव को मापता है। इसका परिमाण बल और धुरी से बल की कार्य रेखा की लम्बवत दूरी का गुणनफल है: tau = r F sin(theta)। यदि बल की कार्य रेखा धुरी से गुजरती है, तो आघूर्ण शून्य होता है। पहले धुरी, फिर कार्य रेखा और फिर लम्बवत दूरी चिन्हित करें।",
+        "activity": "एक धुरी और बराबर परिमाण के तीन बल बनाएं: धुरी की ओर, छड़ के लम्बवत और तिरछे। पहले घुमाने के प्रभाव का अनुमान लिखें, फिर r F sin(theta) से गणना करें। समझाएं कि धुरी से गुजरने वाला बल घुमाव क्यों नहीं देता।"
+      }
+    }
+  },
+  "cell-division": {
+    "misconception": "Meiosis I separates sister chromatids, just like mitosis",
+    "focus": "Track homologous chromosomes separately from sister chromatids; count chromosomes by centromeres.",
+    "activity": "Draw two homologous chromosome pairs in a 2n=4 cell. Use different colors for parental homologues. Record what separates in mitosis, meiosis I and meiosis II, and label ploidy after each division. Compare your drawings against the resource.",
+    "recall": "Without notes, make a three-row comparison of the separating structures, number of divisions and products.",
+    "diagnostic": {
+      "prompt": "Which structures separate in meiosis I? How does this differ from mitosis? Starting at 2n=4, state chromosome count per cell after meiosis I.",
+      "rubric": [
+        "Identifies homologous chromosomes separating in meiosis I",
+        "Distinguishes sister chromatid separation in mitosis",
+        "States two chromosomes per daughter cell after meiosis I"
+      ],
+      "kinds": [
+        "recognition",
+        "understanding",
+        "execution"
+      ]
+    },
+    "assessments": [
+      {
+        "id": "division-transfer-1",
+        "prompt": "A 2n=6 cell finishes meiosis I. State chromosomes per daughter cell, whether each is still duplicated, and what separates in meiosis II. Compare the chromosome count after mitosis.",
+        "answer": "Three duplicated chromosomes per cell; sisters separate in meiosis II; mitosis yields six chromosomes per daughter nucleus.",
+        "rubric": [
+          "States three chromosomes after meiosis I",
+          "Identifies duplicated chromosomes and subsequent sister separation",
+          "States six chromosomes after mitosis"
+        ]
+      },
+      {
+        "id": "division-transfer-2",
+        "prompt": "A diploid organism has 2n=8. Compare daughter nuclei after mitosis and meiosis II. Explain which division separates homologues.",
+        "answer": "Mitosis: eight chromosomes per nucleus. Meiosis II: four per nucleus. Homologues separate in meiosis I.",
+        "rubric": [
+          "Eight after mitosis",
+          "Four after meiosis II",
+          "Homologues separate in meiosis I"
+        ]
+      },
+      {
+        "id": "division-retention-3",
+        "prompt": "A 2n=10 germ cell has completed DNA replication. How many chromosomes per cell after meiosis I and II, and what separates in each?",
+        "answer": "Five after each division; homologues separate in I, sisters in II.",
+        "rubric": [
+          "Five after meiosis I",
+          "Five after meiosis II",
+          "Correct separating structures in both divisions"
+        ]
+      }
+    ],
+    "content": "Mitosis separates sister chromatids and normally preserves ploidy. Meiosis has one DNA replication followed by two divisions. In meiosis I, homologous chromosomes separate: each daughter nucleus has one member of each homologous pair, still composed of sister chromatids. In meiosis II the sisters separate. Count chromosomes by centromeres, not by DNA strands. Draw each division and track a color for each homologue."
+  },
+  "test-selection": {
+    "misconception": "Any comparison of two means uses an independent two-sample test",
+    "focus": "Determine outcome type, sampling unit and dependence before choosing a test; check assumptions.",
+    "activity": "Make a decision table for the same people measured twice, two unrelated groups, and categorical counts. Identify the sampling unit, outcome type, dependence and assumptions first. Use the assigned section to fill the applicable row; mark designs it does not address and complete those using the local explanation before attempting the follow-up.",
+    "recall": "Hide the table and explain why two measurements do not necessarily mean two independent samples.",
+    "diagnostic": {
+      "prompt": "Twenty students take a test before and after a course. For a continuous score with approximately normal differences, which test compares mean change? Explain the sampling unit and one assumption.",
+      "rubric": [
+        "Selects paired t test",
+        "Recognizes within-student dependence",
+        "Checks distribution of differences and independence between students"
+      ],
+      "kinds": [
+        "recognition",
+        "understanding",
+        "execution"
+      ]
+    },
+    "assessments": [
+      {
+        "id": "stats-transfer-1",
+        "prompt": "Blood pressure is measured in the same 18 adults before and after treatment. Differences are approximately normal and adults are sampled independently. Select the mean-change test, state the null and identify the observations used.",
+        "answer": "Paired t test on within-person differences, H0 mean difference = 0; 18 differences, df 17.",
+        "rubric": [
+          "Chooses paired t test",
+          "States mean difference zero null",
+          "Uses 18 within-person differences and checks their assumptions"
+        ]
+      },
+      {
+        "id": "stats-transfer-2",
+        "prompt": "Two independent random groups of 25 plants receive different fertilizers. Heights are continuous and approximately normal; variances are unknown and may differ. Select a mean-comparison test, null and assumptions.",
+        "answer": "Welch two-sample t test; equal population means null; independent sampling and suitable distributions without an equal variance assumption.",
+        "rubric": [
+          "Chooses Welch independent t test",
+          "States equal means null",
+          "Explains independence and distribution assumptions"
+        ]
+      },
+      {
+        "id": "stats-retention-3",
+        "prompt": "Ten independently selected machines are measured for output before and after repair. Differences appear roughly normal. Choose a test, null and sampling unit. Would unrelated machines before and after support the same paired test?",
+        "answer": "Paired t test on machine differences, null mean difference zero; unrelated machines do not support pairing.",
+        "rubric": [
+          "Chooses paired t test",
+          "States mean difference zero and machine as unit",
+          "Explains why unrelated groups cannot be paired"
+        ]
+      }
+    ],
+    "content": "Choose a test from the study design, outcome and assumptions. For a quantitative outcome measured twice in the same independent units, analyze within-unit differences; a paired t test requires suitable assumptions about those differences. For independent groups with unknown and possibly unequal variances, Welch t can compare means when its assumptions fit. Categorical counts require other methods; do not choose t tests just because there are two groups. Always state the estimand, null and sampling unit."
+  }
+}

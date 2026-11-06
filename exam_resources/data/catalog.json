@@ -1,0 +1,310 @@
+[
+  {
+    "id": "local-torque",
+    "provider": "local",
+    "title": "Local active practice: torque",
+    "concepts": [
+      "torque"
+    ],
+    "section": "Complete the embedded explanation and drawing or decision-table task",
+    "subject": "torque",
+    "level": "general",
+    "format": "exercise",
+    "language": "en",
+    "minutes": 10,
+    "duration_basis": "Author-assigned activity timebox; not measured reading time",
+    "cost": "free",
+    "offline": true,
+    "availability": "verified",
+    "verified_at": "2026-11-06T01:26:12.184132+00:00",
+    "verification_evidence": "Locally authored activity included in data/topics.json and catalog.json",
+    "publisher": "Exam Resource Orchestrator authors",
+    "license": "CC0-1.0 (original local activity only)",
+    "permitted_usage": "Use and adapt this original local activity",
+    "evidence": [
+      "Original practice activity targets the listed concept; no empirical efficacy claim"
+    ],
+    "outcomes": [
+      "Identify the pivot and perpendicular distance to the force line before calculating torque."
+    ],
+    "accessibility": [
+      "text"
+    ],
+    "content": "Torque measures turning effect about a chosen pivot. Its magnitude is force times the perpendicular distance from pivot to the force line: tau = r F sin(theta). A force directed through the pivot has zero torque. To solve: mark the pivot, extend the force line, draw the perpendicular distance, then assign clockwise or anticlockwise sign. Practice: sketch equal forces at several angles and rank their torque before computing."
+  },
+  {
+    "id": "local-cell-division",
+    "provider": "local",
+    "title": "Local active practice: cell-division",
+    "concepts": [
+      "cell-division"
+    ],
+    "section": "Complete the embedded explanation and drawing or decision-table task",
+    "subject": "cell-division",
+    "level": "general",
+    "format": "exercise",
+    "language": "en",
+    "minutes": 10,
+    "duration_basis": "Author-assigned activity timebox; not measured reading time",
+    "cost": "free",
+    "offline": true,
+    "availability": "verified",
+    "verified_at": "2026-11-06T01:26:12.184561+00:00",
+    "verification_evidence": "Locally authored activity included in data/topics.json and catalog.json",
+    "publisher": "Exam Resource Orchestrator authors",
+    "license": "CC0-1.0 (original local activity only)",
+    "permitted_usage": "Use and adapt this original local activity",
+    "evidence": [
+      "Original practice activity targets the listed concept; no empirical efficacy claim"
+    ],
+    "outcomes": [
+      "Track homologous chromosomes separately from sister chromatids; count chromosomes by centromeres."
+    ],
+    "accessibility": [
+      "text"
+    ],
+    "content": "Mitosis separates sister chromatids and normally preserves ploidy. Meiosis has one DNA replication followed by two divisions. In meiosis I, homologous chromosomes separate: each daughter nucleus has one member of each homologous pair, still composed of sister chromatids. In meiosis II the sisters separate. Count chromosomes by centromeres, not by DNA strands. Draw each division and track a color for each homologue."
+  },
+  {
+    "id": "local-test-selection",
+    "provider": "local",
+    "title": "Local active practice: test-selection",
+    "concepts": [
+      "test-selection"
+    ],
+    "section": "Complete the embedded explanation and drawing or decision-table task",
+    "subject": "test-selection",
+    "level": "general",
+    "format": "exercise",
+    "language": "en",
+    "minutes": 10,
+    "duration_basis": "Author-assigned activity timebox; not measured reading time",
+    "cost": "free",
+    "offline": true,
+    "availability": "verified",
+    "verified_at": "2026-11-06T01:26:12.184569+00:00",
+    "verification_evidence": "Locally authored activity included in data/topics.json and catalog.json",
+    "publisher": "Exam Resource Orchestrator authors",
+    "license": "CC0-1.0 (original local activity only)",
+    "permitted_usage": "Use and adapt this original local activity",
+    "evidence": [
+      "Original practice activity targets the listed concept; no empirical efficacy claim"
+    ],
+    "outcomes": [
+      "Determine outcome type, sampling unit and dependence before choosing a test; check assumptions."
+    ],
+    "accessibility": [
+      "text"
+    ],
+    "content": "Choose a test from the study design, outcome and assumptions. For a quantitative outcome measured twice in the same independent units, analyze within-unit differences; a paired t test requires suitable assumptions about those differences. For independent groups with unknown and possibly unequal variances, Welch t can compare means when its assumptions fit. Categorical counts require other methods; do not choose t tests just because there are two groups. Always state the estimand, null and sampling unit."
+  },
+  {
+    "id": "local-torque-hi",
+    "provider": "local",
+    "title": "बल आघूर्ण: स्थानीय अभ्यास",
+    "concepts": [
+      "torque"
+    ],
+    "section": "Complete the embedded explanation and drawing or decision-table task",
+    "subject": "torque",
+    "level": "general",
+    "format": "exercise",
+    "language": "hi",
+    "minutes": 10,
+    "duration_basis": "Author-assigned activity timebox; not measured reading time",
+    "cost": "free",
+    "offline": true,
+    "availability": "verified",
+    "verified_at": "2026-11-06T01:26:12.184573+00:00",
+    "verification_evidence": "Locally authored activity included in data/topics.json and catalog.json",
+    "publisher": "Exam Resource Orchestrator authors",
+    "license": "CC0-1.0 (original local activity only)",
+    "permitted_usage": "Use and adapt this original local activity",
+    "evidence": [
+      "Original practice activity targets the listed concept; no empirical efficacy claim"
+    ],
+    "outcomes": [
+      "Identify the pivot and perpendicular distance to the force line before calculating torque."
+    ],
+    "accessibility": [
+      "text"
+    ],
+    "content": "बल आघूर्ण किसी चुने हुए धुरी बिंदु के चारों ओर घुमाने के प्रभाव को मापता है। इसका परिमाण बल और धुरी से बल की कार्य रेखा की लम्बवत दूरी का गुणनफल है: tau = r F sin(theta)। यदि बल की कार्य रेखा धुरी से गुजरती है, तो आघूर्ण शून्य होता है। पहले धुरी, फिर कार्य रेखा और फिर लम्बवत दूरी चिन्हित करें।"
+  },
+  {
+    "id": "openstax-torque",
+    "provider": "openstax",
+    "title": "Torque, University Physics Volume 1",
+    "concepts": [
+      "torque"
+    ],
+    "section": "10.6 Torque: definition, force angle and moment arm",
+    "url": "https://openstax.org/books/university-physics-volume-1/pages/10-6-torque",
+    "publisher": "OpenStax",
+    "subject": "torque",
+    "level": "university",
+    "format": "text",
+    "language": "en",
+    "cost": "free",
+    "availability": "verified",
+    "verified_at": "2026-11-06T01:26:12.184576+00:00",
+    "verification_evidence": "Content inspected in official section on 2026-11-06",
+    "license": "See source-specific terms; link only",
+    "permitted_usage": "Link only; no content copied or simulations redistributed",
+    "evidence": [
+      "Content inspected in official section on 2026-11-06"
+    ],
+    "outcomes": [
+      "Identify the pivot and perpendicular distance to the force line before calculating torque."
+    ],
+    "accessibility": [
+      "text"
+    ]
+  },
+  {
+    "id": "openstax-division",
+    "provider": "openstax",
+    "title": "The Process of Meiosis, Biology 2e",
+    "concepts": [
+      "cell-division"
+    ],
+    "section": "11.1: Meiosis I and the comparison with mitosis",
+    "url": "https://openstax.org/books/biology-2e/pages/11-1-the-process-of-meiosis",
+    "publisher": "OpenStax",
+    "subject": "cell-division",
+    "level": "university",
+    "format": "text",
+    "language": "en",
+    "cost": "free",
+    "availability": "verified",
+    "verified_at": "2026-11-06T01:26:12.184580+00:00",
+    "verification_evidence": "Content inspected in official section on 2026-11-06",
+    "license": "See source-specific terms; link only",
+    "permitted_usage": "Link only; no content copied or simulations redistributed",
+    "evidence": [
+      "Content inspected in official section on 2026-11-06"
+    ],
+    "outcomes": [
+      "Track homologous chromosomes separately from sister chromatids; count chromosomes by centromeres."
+    ],
+    "accessibility": [
+      "text"
+    ]
+  },
+  {
+    "id": "openstax-paired",
+    "provider": "openstax",
+    "title": "Matched or Paired Samples, Introductory Statistics 2e",
+    "concepts": [
+      "test-selection"
+    ],
+    "section": "10.4: criteria for matched pairs and within-pair differences",
+    "url": "https://openstax.org/books/introductory-statistics-2e/pages/10-4-matched-or-paired-samples",
+    "publisher": "OpenStax",
+    "subject": "test-selection",
+    "level": "university",
+    "format": "text",
+    "language": "en",
+    "cost": "free",
+    "availability": "verified",
+    "verified_at": "2026-11-06T01:26:12.184583+00:00",
+    "verification_evidence": "Official section indexed with paired-sample assumptions on 2026-11-06",
+    "license": "See source-specific terms; link only",
+    "permitted_usage": "Link only; no content copied or simulations redistributed",
+    "evidence": [
+      "Official section indexed with paired-sample assumptions on 2026-11-06"
+    ],
+    "outcomes": [
+      "Determine outcome type, sampling unit and dependence before choosing a test; check assumptions."
+    ],
+    "accessibility": [
+      "text"
+    ]
+  },
+  {
+    "id": "openstax-welch",
+    "provider": "openstax",
+    "title": "Two Population Means with Unknown Standard Deviations",
+    "concepts": [
+      "test-selection"
+    ],
+    "section": "10.1: independent samples and unequal population variances",
+    "url": "https://openstax.org/books/introductory-statistics-2e/pages/10-1-two-population-means-with-unknown-standard-deviations",
+    "publisher": "OpenStax",
+    "subject": "test-selection",
+    "level": "university",
+    "format": "text",
+    "language": "en",
+    "cost": "free",
+    "availability": "verified",
+    "verified_at": "2026-11-06T01:26:12.184586+00:00",
+    "verification_evidence": "Content inspected in official section on 2026-11-06",
+    "license": "See source-specific terms; link only",
+    "permitted_usage": "Link only; no content copied or simulations redistributed",
+    "evidence": [
+      "Content inspected in official section on 2026-11-06"
+    ],
+    "outcomes": [
+      "Determine outcome type, sampling unit and dependence before choosing a test; check assumptions."
+    ],
+    "accessibility": [
+      "text"
+    ]
+  },
+  {
+    "id": "khan-torque",
+    "provider": "khan",
+    "title": "Introduction to torque",
+    "concepts": [
+      "torque"
+    ],
+    "section": "Introduction to torque lesson; no verified video timestamps",
+    "url": "https://www.khanacademy.org/science/in-in-class11th-physics/in-in-system-of-particles-and-rotational-motion/in-in-torque-and-equilibrium-ap/v/introduction-to-torque",
+    "publisher": "Sal Khan / Khan Academy",
+    "subject": "torque",
+    "level": "secondary",
+    "format": "video",
+    "language": "en",
+    "cost": "free",
+    "availability": "unverified",
+    "verified_at": null,
+    "verification_evidence": "Official lesson URL and author indexed in search on 2026-11-06; playback not verified",
+    "license": "See source-specific terms; link only",
+    "permitted_usage": "Link only; no content copied or simulations redistributed",
+    "evidence": [
+      "Official lesson URL and author indexed in search on 2026-11-06; playback not verified"
+    ],
+    "outcomes": [
+      "Identify the pivot and perpendicular distance to the force line before calculating torque."
+    ],
+    "accessibility": []
+  },
+  {
+    "id": "phet-balance",
+    "provider": "phet",
+    "title": "Balancing Act",
+    "concepts": [
+      "torque"
+    ],
+    "section": "Use the balance to compare mass and distance from the pivot",
+    "url": "https://phet.colorado.edu/en/simulations/balancing-act",
+    "publisher": "PhET Interactive Simulations, University of Colorado Boulder",
+    "subject": "torque",
+    "level": "secondary",
+    "format": "interactive",
+    "language": "en",
+    "cost": "free",
+    "availability": "unverified",
+    "verified_at": null,
+    "verification_evidence": "Official landing page resolved on 2026-11-06; simulation execution not verified",
+    "license": "See source-specific terms; link only",
+    "permitted_usage": "Link only; no content copied or simulations redistributed",
+    "evidence": [
+      "Official landing page resolved on 2026-11-06; simulation execution not verified"
+    ],
+    "outcomes": [
+      "Identify the pivot and perpendicular distance to the force line before calculating torque."
+    ],
+    "accessibility": []
+  }
+]

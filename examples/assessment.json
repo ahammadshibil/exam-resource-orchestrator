@@ -1,0 +1,9 @@
+{
+  "identifier": "REPLACE_WITH_INTERVENTION_UUID",
+  "assessment_id": "REPLACE_WITH_ASSIGNED_ASSESSMENT_ID",
+  "criteria": [true, true, true],
+  "response": "REPLACE_WITH_ACTUAL_UNAIDED_LEARNER_RESPONSE",
+  "independent": true,
+  "assessor": "tutor",
+  "delayed": false
+}

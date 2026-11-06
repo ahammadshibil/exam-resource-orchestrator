@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "exam-resource-orchestrator"
+version = "0.1.0"
+description = "Optional resource orchestration module for Exam Reverse Engineer"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+exam-resources = "exam_resources.cli:main"
+
+[tool.setuptools.package-data]
+exam_resources = ["data/*.json"]
+
+[tool.setuptools.packages.find]
+include = ["exam_resources*"]

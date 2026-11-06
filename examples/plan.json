@@ -1,0 +1,7 @@
+{
+  "learner": {"id": "demo-learner", "curriculum": "JEE", "online": false, "minutes": 25},
+  "gaps": [{"concept": "torque", "kind": "recognition", "misconception": "Force alone determines torque", "baseline": 0.3333333333333333, "evidence": "Synthetic scored diagnostic", "confirmed": true}],
+  "start_date": "2026-11-06",
+  "exam_date": "2026-11-20",
+  "daily_minutes": 30
+}

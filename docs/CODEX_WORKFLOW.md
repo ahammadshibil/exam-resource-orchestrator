@@ -1,0 +1,16 @@
+# Codex conversational workflow
+
+Use the Python API or JSON CLI; no web app is required.
+
+1. Ask which concept, exam, language, access constraints and study time apply. Retrieve existing host evidence where available. Do not infer a weakness merely from the syllabus or a provider preference.
+2. Run `diagnostic CONCEPT`. Present the prompt and collect an unaided response. Score each diagnostic criterion transparently, with learner or tutor provenance. Run `diagnose INPUT.json` to obtain the evidence-backed gap.
+3. Run `recommend REQUEST.json`. Explain the selected resource's section, why it addresses the observed error, active task, misconception and follow-up. Mention unverified availability or a language mismatch. Show at most two candidates by default.
+4. Run `start REQUEST.json` after the learner chooses an eligible candidate. A `resource_id` may be included in the request. Preserve the assigned intervention and question ID. Never reveal the reference answer before the learner responds.
+5. Let the learner open the provider manually or complete the embedded local activity. Record completion with `activity UUID completed`, separately from assessment.
+6. Present the prescribed unfamiliar question. Collect the response first; only then read `rubric UUID`, mark criteria and call `assess INPUT.json` with `independent=true` and the actual assessor label. Do not grade by keyword overlap or equate confidence with correctness.
+7. Report demonstrated performance and its limits. Low scores prompt rediagnosis and another resource where possible. Reserve the next unseen question for a later retention check. The evaluator enforces elapsed time for delayed submissions.
+8. For syllabus-only input, build concept entries with unknown baseline, administer diagnostics, then plan sessions. Unknown concepts require reviewed topic definitions. For offline learners, set `online=false`. If a provider is paid, blocked or inaccessible, explain the exclusion and use an eligible alternative.
+
+External uploads require separate explicit user authorization and source rights confirmation. A request for ordinary tutoring or notebook recommendations does not authorize uploading private notes. Use the notebook adapter only for its documented methods and credentials; use its manual workflow instructions for other study features.
+
+To rerun CLI calls consistently, supply the same `--db`, `--catalog` and `--topics` paths. `history` returns learner-safe assessment prompts and outcome evidence; `mastery` reports local state. These CLI tools can be called directly by Codex in the host workflow. No Codex plugin installation or external MCP configuration is performed by this package.

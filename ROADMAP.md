@@ -1,0 +1,26 @@
+# Development roadmap
+
+## Module 16 — implemented standalone foundation
+
+- Provider registry and optional metadata discovery adapters.
+- Common resource schema with provenance, access and verification limits.
+- Configurable ranking rubric and sparse observational outcome adjustment.
+- Actionable prescriptions; diagnostic gates; independent assessment reservation.
+- Local SQLite intervention, completion, assessment, retention and mastery records.
+- Practical study plans with daily capacity, exam cutoff and local fallback.
+- Python API, JSON CLI and Codex conversational instructions.
+- Original activities for torque, cell division and test selection; Hindi torque instruction.
+- Opt-in Gemini Notebook create/source adapter based on official API and MCP research.
+- Offline acceptance and regression suite.
+
+## Integration work when the existing core is supplied
+
+Attach host concept IDs, mastery events, learner profiles and official curriculum mappings. Merge this data model with the host's migrations and privacy/access controls. Add the CLI commands to its existing entrypoint and include these scenarios in its evaluation runner. No Modules 1–15 were supplied or reconstructed here.
+
+## Content and provider expansion
+
+Add reviewed syllabus units, diagnostics, prerequisites, regional-language assessments and larger unseen-question banks. Populate optional provider catalogs from verified official sources. Add documented authorized APIs only where useful, with live account testing, availability rechecks and explicit terms. Keep local operation viable.
+
+## Evidence and operational hardening
+
+Review grading provenance and exam alignment, broaden delayed retention evaluation, and calibrate ranking weights from sufficiently supported outcomes. Add explicit confounder recording before stronger effectiveness conclusions. Add migrations, concurrency-safe question reservation and retention scheduling against the host's assessment timestamps if deploying beyond a single-user local workflow. Add source-readiness polling and token lifecycle support before unattended Notebook automation.

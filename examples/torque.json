@@ -1,0 +1,4 @@
+{
+  "learner": {"id": "demo-learner", "curriculum": "JEE", "language": "en", "country": "IN", "online": false, "minutes": 25},
+  "gap": {"concept": "torque", "kind": "recognition", "misconception": "Force magnitude alone determines turning effect", "baseline": 0.3333333333333333, "evidence": "Synthetic demo: recognized calculation but missed radial-force recognition and moment-arm explanation", "confirmed": true}
+}

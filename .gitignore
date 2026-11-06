@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.sqlite3
+*.sqlite3-journal
+*.egg-info/
+build/
+dist/
+.venv/
