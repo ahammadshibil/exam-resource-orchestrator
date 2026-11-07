@@ -1,3 +1,7 @@
+test_hn_popularity_and_summaries_not_used (test_hackertube.HackerTubeTests.test_hn_popularity_and_summaries_not_used) ... ok
+test_invalid_records_rejected_without_making_up_urls (test_hackertube.HackerTubeTests.test_invalid_records_rejected_without_making_up_urls) ... ok
+test_provider_optional_and_reference_query_works_without_keys (test_hackertube.HackerTubeTests.test_provider_optional_and_reference_query_works_without_keys) ... ok
+test_real_bundled_catalog_loaded_and_attributed (test_hackertube.HackerTubeTests.test_real_bundled_catalog_loaded_and_attributed) ... ok
 test_A_jee_torque_recognition (test_orchestrator.OrchestrationTests.test_A_jee_torque_recognition) ... ok
 test_B_neet_mitosis_meiosis (test_orchestrator.OrchestrationTests.test_B_neet_mitosis_meiosis) ... ok
 test_C_university_test_selection (test_orchestrator.OrchestrationTests.test_C_university_test_selection) ... ok
@@ -34,10 +38,11 @@ test_rediscovery_preserves_reviewed_metadata (test_references.ReferenceTests.tes
 test_restricted_and_dead_links_retained_with_labels (test_references.ReferenceTests.test_restricted_and_dead_links_retained_with_labels) ... ok
 test_search_api_retains_only_metadata_not_snippets (test_references.ReferenceTests.test_search_api_retains_only_metadata_not_snippets) ... ok
 test_search_failure_falls_back_without_logging_token (test_references.ReferenceTests.test_search_failure_falls_back_without_logging_token) ... ok
+test_title_relevance_beats_incidental_topic_tag (test_references.ReferenceTests.test_title_relevance_beats_incidental_topic_tag) ... ok
 test_unknown_permission_and_cost_do_not_hide_link (test_references.ReferenceTests.test_unknown_permission_and_cost_do_not_hide_link) ... ok
 test_url_query_and_section_preserved_and_unsafe_schemes_rejected (test_references.ReferenceTests.test_url_query_and_section_preserved_and_unsafe_schemes_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 38 tests in 2.823s
+Ran 43 tests in 16.456s
 
 OK

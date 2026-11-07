@@ -1,5 +1,13 @@
 # Development roadmap
 
+## v0.2.1 — HackerTube references
+
+- Bundled 6,454 attributed video references from the official public export; no key required.
+- Metadata-only title/topic matching with original YouTube links and source provenance.
+- No video, transcript or comment content; no community-popularity ranking.
+- Direct title relevance above incidental tags, plus provider removal that also suppresses remembered references.
+- 43 regression/acceptance tests; playback and exam alignment remain unverified.
+
 ## v0.2 — link-first reference expansion
 
 - Persistent metadata-only references for arbitrary topics, independent of the starter diagnostic bank.

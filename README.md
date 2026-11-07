@@ -12,11 +12,15 @@ You can now find and retain references beyond the three scored starter topics. T
 git pull
 python -m exam_resources references photosynthesis
 python -m exam_resources references eigenvalues
+python -m exam_resources references "linear algebra"
+python -m exam_resources references "neural networks"
 python -m exam_resources add-reference examples/reference.json
 python -m exam_resources references photosynthesis --check-links
 ```
 
-The first two examples work from the included reference catalog without credentials. Import a link found by Codex, a connected search tool or a human using `add-reference`; it persists in the same SQLite database. Use `--db PATH` before the command to select that database. `references "ANY TOPIC"` searches the titles and topic tags of saved metadata; an empty index does not fabricate results. `--offline` lists remembered links with access warnings without making network requests.
+These examples work from the included reference catalog without credentials. Version 0.2.1 also includes 6,454 attributed video references from [HackerTube's public export](https://hackertube.org/data), searchable by catalog title and topic tags. This is a reduced metadata index, not downloaded videos or transcripts. Results link to the original YouTube video and include HackerTube provenance. Community recommendation counts and popularity scores are not used; direct title matches receive more relevance weight than incidental topic tags. The catalog includes material beyond formal education, so it does not guarantee instructional accuracy or exam coverage. See [third-party attribution](THIRD_PARTY_NOTICES.md). To disable the provider in Python, call `engine.registry.remove("hackertube")`.
+
+Import a link found by Codex, a connected search tool or a human using `add-reference`; it persists in the same SQLite database. Use `--db PATH` before the command to select that database. `references "ANY TOPIC"` searches the titles and topic tags of saved metadata; no matching source means an explicit empty result. `--offline` lists remembered links with access warnings without making network requests.
 
 Optional live web discovery uses the [official Brave Search API](https://api-dashboard.search.brave.com/app/documentation/web-search). Configure your own account/key with an appropriate search plan, then explicitly request live discovery:
 

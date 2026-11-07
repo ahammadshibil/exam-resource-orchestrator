@@ -8,6 +8,8 @@ The default adapters search an authorized local metadata catalog. Discovery catc
 
 `Resource` now includes `reference_only`, `link_status` and `link_checked_at`. Its content verification timestamp remains distinct from a link check. SQLite stores resource JSON, so existing databases accept these optional fields without a table migration. Live discovery is never called implicitly by `recommend` or `start`. Per-provider API keys stay in memory/environment rather than being persisted.
 
+`HackerTubeAdapter` exposes the bundled reduced public-export metadata through the same optional registry. Its catalog labels support candidate retrieval; HN scores/counts do not enter ranking. Removing a provider suppresses both its bundled candidates and remembered references. Explicit re-registration re-enables it. The metadata snapshot is packaged as JSONL with per-reference provenance and a third-party attribution notice in the source distribution.
+
 ## Persistent data model
 
 | Table | Identity | Stored data |

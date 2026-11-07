@@ -29,14 +29,17 @@ class CatalogAdapter:
 class ProviderRegistry:
     def __init__(self):
         self.adapters = {}
+        self.disabled = set()
 
     def register(self, adapter):
         if adapter.id in self.adapters:
             raise ValueError(f"Provider already registered: {adapter.id}")
         self.adapters[adapter.id] = adapter
+        self.disabled.discard(adapter.id)
 
     def remove(self, identifier):
         self.adapters.pop(identifier, None)
+        self.disabled.add(identifier)
 
     def describe(self):
         return {key: adapter.capabilities for key, adapter in self.adapters.items()}

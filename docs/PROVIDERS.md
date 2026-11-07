@@ -9,6 +9,7 @@ Documentation inspected on 6 November 2026. Documentation verification is separa
 | Khan Academy | Local lesson metadata and manual link | Official indexed torque lesson; playback unverified; no legacy API dependency |
 | PhET | Manual Balancing Act link and targeted balance activity | Landing page resolved; simulation execution unverified; no bundled simulation |
 | Gemini Notebook | Opt-in official REST create-notebook and add-source methods | Request-contract tests use injected transport; live credentials unavailable |
+| HackerTube | Bundled, attributed metadata adapter for 6,454 video references | Official export retrieved; no video playback, transcript or content verification |
 | Other categories | Empty configurable catalog adapters | No remote access, supported lesson or API claim |
 
 ## Link-first reference mode (v0.2, 7 November 2026)
@@ -20,6 +21,14 @@ Live search is opt-in and needs a separately configured `BRAVE_SEARCH_API_KEY`; 
 `LinkVerifier` is an opt-in HEAD-only status checker. It blocks non-public DNS destinations and custom ports, does not follow redirects or bypass restrictions, and never reads response bodies. A HEAD failure is not automatically a broken lesson: unsupported checks, rate limits and network failures remain unknown. Original links survive restriction, unknown-cost and unknown-license conditions with clear access notes. Reference mode does not certify content coverage or feed mastery scores from link clicks or generic self-checks.
 
 New seed references were discovered from official indexed metadata: [OpenStax photosynthesis](https://openstax.org/books/biology-2e/pages/8-1-overview-of-photosynthesis) and [MIT OCW eigenvalues](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/resources/lecture-21-eigenvalues-and-eigenvectors-1/). Content/playback and reuse licenses remain unverified; the reference workflow does not copy either source.
+
+## HackerTube metadata adapter (v0.2.1)
+
+Karpathy's [project announcement](https://karpathy.bearblog.dev/hacker-tube/) points to HackerTube's data export. The official [data page](https://hackertube.org/data) and [export schema](https://hackertube.org/download/DATA.md) provide the metadata and attribution terms. On 7 November 2026, the public manifest at `https://hackertube.org/api/export` identified 6,454 video records in the 31 October snapshot; the published `https://hackertube.org/download/videos.jsonl` export was used to build this reduced index. These are the site's published export paths, not a claimed general-purpose API integration.
+
+The included `data/hackertube.jsonl` retains only six source fields: video ID, original URL, title, channel, primary topic and tags. `HackerTubeAdapter` validates each URL against its exported YouTube ID, adds attribution and marks the result unverified. No video, transcript, summary, quote, comment, thumbnail, embedding or popularity score is imported. Source labels are discovery evidence, not demonstrated learning effectiveness or official exam alignment. Language, cost, prerequisites, duration and video licensing are not inferred. The catalog metadata license is ODC-By 1.0; original-video rights remain separate. See [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
+
+The adapter is registered by default and can be removed through `ProviderRegistry`. It needs no key or network to search the bundled snapshot. Refreshing requires retrieving a newly published export, validating the reduced fields and updating attribution dates; no background scraper or undocumented refresh endpoint is installed.
 
 ## Gemini Notebook
 

@@ -116,10 +116,11 @@ class LinkVerifier:
 
 
 class ReferenceService:
-    def __init__(self, store, catalog=(), search_provider=None, verifier=None):
+    def __init__(self, store, catalog=(), search_provider=None, verifier=None, excluded_providers=()):
         self.store, self.catalog = store, list(catalog)
         self.search_provider = search_provider
         self.verifier = verifier or LinkVerifier()
+        self.excluded_providers = set(excluded_providers)
 
     def add(self, metadata):
         metadata = dict(metadata)
@@ -153,7 +154,7 @@ class ReferenceService:
                     errors.append("Live search failed; retained saved references. No provider response or credential was logged.")
         found = {}
         for resource in [*self.catalog, *self.store.resources()]:
-            if not resource.url:
+            if not resource.url or resource.provider in self.excluded_providers:
                 continue
             coverage = tokens(" ".join([resource.title, *resource.concepts]))
             wanted = tokens(query)
@@ -171,7 +172,16 @@ class ReferenceService:
                 resource = self.verifier.check(resource)
                 self.store.put(resource)
             score, factors = ranker.score(resource, learner, gap)
-            factors["concept"] = 1. if query.casefold() in {c.casefold() for c in resource.concepts} and resource.availability == "verified" else .5
+            exact_tag = query.casefold() in {c.casefold() for c in resource.concepts}
+            if exact_tag and resource.availability == "verified":
+                relevance = 1.
+            elif query.casefold() in resource.title.casefold():
+                relevance = .8
+            elif tokens(query).issubset(tokens(resource.title)):
+                relevance = .7
+            else:
+                relevance = .6 if exact_tag else .4
+            factors["concept"] = relevance
             score = round(sum(factors[k] * w for k, w in ranker.weights.items()) / sum(ranker.weights.values()), 4)
             reason = ResourceMatcher.exclusion(resource, learner)
             if resource.link_status in {"restricted", "unavailable"}:

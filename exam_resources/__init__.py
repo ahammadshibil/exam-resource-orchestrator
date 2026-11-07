@@ -5,9 +5,10 @@ from .engine import Orchestrator, ResourceDiscovery, ResourceMatcher, Recommenda
 from .engine import LearningPrescriptionGenerator, OutcomeEvaluator, ActivityTracker
 from .store import ResourceMetadataStore
 from .references import ReferenceService, BraveReferenceSearch, LinkVerifier
+from .hackertube import HackerTubeAdapter
 
 __all__ = ["Resource", "Learner", "Gap", "Assessment", "Prescription",
            "ProviderRegistry", "CatalogAdapter", "GeminiNotebookAdapter", "Orchestrator",
            "ResourceDiscovery", "ResourceMatcher", "RecommendationRanker",
            "LearningPrescriptionGenerator", "OutcomeEvaluator", "ActivityTracker",
-           "ResourceMetadataStore", "ReferenceService", "BraveReferenceSearch", "LinkVerifier"]
+           "ResourceMetadataStore", "ReferenceService", "BraveReferenceSearch", "LinkVerifier", "HackerTubeAdapter"]

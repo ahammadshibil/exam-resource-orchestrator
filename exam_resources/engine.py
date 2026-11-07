@@ -22,7 +22,7 @@ class ResourceDiscovery:
         self.errors = []
         found = {}
         for resource in self.store.resources():
-            if resource.reference_only and concept.casefold() in {c.casefold() for c in resource.concepts}:
+            if resource.reference_only and resource.provider not in self.registry.disabled and concept.casefold() in {c.casefold() for c in resource.concepts}:
                 found[resource.id] = resource
         for name, adapter in self.registry.adapters.items():
             try:
@@ -203,7 +203,7 @@ class Orchestrator:
         from .references import ReferenceService
         catalog = [resource for adapter in self.registry.adapters.values()
                    for resource in getattr(adapter, "resources", [])]
-        result = ReferenceService(self.store, catalog, search_provider).search(
+        result = ReferenceService(self.store, catalog, search_provider, excluded_providers=self.registry.disabled).search(
             query, learner, limit=limit, live=live, check_links=check_links)
         result["reviewed_topic_available"] = query in self.topics
         return result
@@ -214,6 +214,8 @@ class Orchestrator:
         resources = [Resource(**r) for r in json.loads(files("exam_resources").joinpath("data/catalog.json").read_text(encoding="utf-8"))]
         for provider in sorted({r.provider for r in resources}):
             registry.register(CatalogAdapter(provider, [r for r in resources if r.provider == provider]))
+        from .hackertube import HackerTubeAdapter
+        registry.register(HackerTubeAdapter())
         # Empty optional categories are extension points, not invented lessons or API claims.
         for provider in ["official", "mit-ocw", "nptel", "swayam", "diksha", "ncert", "university", "youtube", "uploads"]:
             if provider not in registry.adapters:

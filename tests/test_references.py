@@ -168,6 +168,12 @@ class ReferenceTests(unittest.TestCase):
         self.assertFalse(result["references"][0]["access_blocked_or_unknown"])
         self.assertTrue(result["references"][1]["access_blocked_or_unknown"])
 
+    def test_title_relevance_beats_incidental_topic_tag(self):
+        self.service.add({**self.metadata, "url": "https://example.com/direct", "title": "Eigenvalues tutorial"})
+        self.service.add({**self.metadata, "url": "https://example.com/incidental", "title": "Physics lecture"})
+        result = self.service.search("eigenvalues", self.learner)
+        self.assertEqual(result["references"][0]["resource"]["title"], "Eigenvalues tutorial")
+
     def test_imported_reference_available_to_reviewed_tutoring(self):
         self.service.add({**self.metadata, "concepts": ["torque"], "cost": "free"})
         engine = Orchestrator(self.store)

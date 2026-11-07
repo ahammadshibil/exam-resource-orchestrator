@@ -1,6 +1,6 @@
 # Evaluation framework
 
-Run `python -m unittest discover -s tests -v`. The suite is offline and uses temporary SQLite files. On hosts with a restricted system temp directory, set `EXAM_TEST_TMP` to a writable scratch directory first. Tests currently comprise 38 cases.
+Run `python -m unittest discover -s tests -v`. The suite is offline and uses temporary SQLite files. On hosts with a restricted system temp directory, set `EXAM_TEST_TMP` to a writable scratch directory first. Tests currently comprise 43 cases.
 
 | Acceptance scenario | Verified behavior |
 |---|---|
@@ -19,6 +19,8 @@ Additional tests cover access/prerequisite/time/age/region constraints, provider
 The v0.2 reference suite adds arbitrary topics without an authored diagnostic, permission-unknown and cost-unknown link retention, restricted/dead/redirected link labels, HEAD-only transport with no body reads, rejection of private network destinations by the checker, content/metadata verification separation, reference-only content rejection, persistent deduplication, search contract and metadata-only retention, credential-free imports, no implicit network calls, offline behavior, safe provider-error fallback, access-aware ordering, reviewed-tutoring candidate integration, preservation of reviewed metadata during re-discovery, exact query/fragment preservation and CLI import/search. Seeded photosynthesis and eigenvalue reference commands were smoke-tested. Brave API behavior is transport-contract tested; no live Brave credential was available.
 
 A live HEAD-only check of the seeded OpenStax photosynthesis URL returned a reachable status on 7 November 2026. No response body was read, and the content-verification and licensing fields remained unverified. This check is not a guarantee of access from another learner's account or region.
+
+HackerTube coverage tests validate all 6,454 bundled metadata records, zero rejected records, original-video URL/ID consistency, attribution, absence of teaching content, no assumed language/duration/quality, exclusion of HN scores and summaries, rejection of malformed records, credential-free search, removal of a provider even after a reference has been remembered, and metadata title relevance above incidental tagging. A neural-networks CLI search returned 32 metadata matches in the current snapshot, with no content downloaded and no mastery update. Video playback and examination alignment were not tested.
 
 Official external source URLs were checked using browsing during development; runtime tests make no network requests and cannot certify continuing availability. Khan playback and PhET execution remain unverified in seed metadata. Google API requests are contract-tested with an injected transport, not authenticated live. No simulation/license redistribution was tested or attempted.
 
