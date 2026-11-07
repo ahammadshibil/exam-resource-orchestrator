@@ -1,5 +1,14 @@
 # Development roadmap
 
+## v0.3.0 — publisher catalogs beyond HackerTube
+
+- 9,017 original publisher locators: OpenStax 4,790; NPTEL 3,483; MIT OCW 744.
+- Explicit official discovery routes for NCERT, DIKSHA, SWAYAM and NTA, with access/coverage limitations.
+- Source listing and provider selectors; official-domain constraints for optional live search.
+- URL-label provenance, section/course scope, preservation of reviewed metadata, and bounded link checks.
+- 55 tests covering snapshot integrity and prior tutoring/reference behavior.
+- Further work: verified NCERT chapter and DIKSHA/SWAYAM item metadata, additional regional-language resources, current official exam mappings and reviewed assessments. No claim that those catalogs or mappings are complete.
+
 ## v0.2.1 — HackerTube references
 
 - Bundled 6,454 attributed video references from the official public export; no key required.

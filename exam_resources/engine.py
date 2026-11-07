@@ -22,13 +22,15 @@ class ResourceDiscovery:
         self.errors = []
         found = {}
         for resource in self.store.resources():
-            if resource.reference_only and resource.provider not in self.registry.disabled and concept.casefold() in {c.casefold() for c in resource.concepts}:
+            if resource.reference_only and resource.reference_kind not in {"course", "book", "catalog"} and resource.provider not in self.registry.disabled and concept.casefold() in {c.casefold() for c in resource.concepts}:
                 found[resource.id] = resource
         for name, adapter in self.registry.adapters.items():
             try:
                 for resource in adapter.discover(concept):
                     if resource.provider != name:
                         raise ValueError("Provider identity mismatch")
+                    if resource.reference_kind in {"course", "book", "catalog"}:
+                        continue
                     self.store.put(resource)
                     found[resource.id] = resource
             except (OSError, ValueError, TimeoutError) as error:
@@ -199,12 +201,21 @@ class Orchestrator:
         self.tracker = ActivityTracker(self.store)
         self.evaluator = OutcomeEvaluator(self.store)
 
-    def references(self, query, learner, *, limit=2, live=False, check_links=False, search_provider=None):
+    def references(self, query, learner, *, limit=2, live=False, check_links=False, search_provider=None, providers=None):
         from .references import ReferenceService
+        from .sources import sources, discovery_routes
+        included = set(providers or [])
+        valid = set(self.registry.adapters) | {s["id"] for s in sources()}
+        if included - valid:
+            raise ValueError("Unknown provider selector: " + ", ".join(sorted(included - valid)))
         catalog = [resource for adapter in self.registry.adapters.values()
                    for resource in getattr(adapter, "resources", [])]
-        result = ReferenceService(self.store, catalog, search_provider, excluded_providers=self.registry.disabled).search(
+        result = ReferenceService(self.store, catalog, search_provider, excluded_providers=self.registry.disabled,
+                                  included_providers=included).search(
             query, learner, limit=limit, live=live, check_links=check_links)
+        result["discovery_routes"] = discovery_routes(query, learner, included, self.registry.disabled)
+        if result["status"] == "no_references" and result["discovery_routes"]:
+            result["status"] = "discovery_routes_available"
         result["reviewed_topic_available"] = query in self.topics
         return result
 
@@ -212,6 +223,8 @@ class Orchestrator:
     def default_registry():
         registry = ProviderRegistry()
         resources = [Resource(**r) for r in json.loads(files("exam_resources").joinpath("data/catalog.json").read_text(encoding="utf-8"))]
+        from .sources import publisher_resources
+        resources.extend(publisher_resources())
         for provider in sorted({r.provider for r in resources}):
             registry.register(CatalogAdapter(provider, [r for r in resources if r.provider == provider]))
         from .hackertube import HackerTubeAdapter

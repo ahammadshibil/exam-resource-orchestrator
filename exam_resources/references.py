@@ -1,5 +1,5 @@
 """Persistent link discovery. Teaching pages are neither downloaded nor copied."""
-from dataclasses import asdict
+from dataclasses import asdict, replace
 import hashlib
 import ipaddress
 import json
@@ -28,6 +28,31 @@ def reference_id(url):
 
 def tokens(text):
     return set(re.findall(r"[^\W_]+", text.casefold(), re.UNICODE))
+
+
+def query_terms(text):
+    text = re.sub(r"^\s*what\s+(?:is|are)\s+", "", text, flags=re.IGNORECASE)
+    return tokens(text) - {"a", "an", "and", "the", "of"}
+
+
+def metadata_confidence(resource):
+    return (resource.availability == "verified", resource.title_basis == "source_metadata", resource.verified_at or "")
+
+
+def access_note(resource, learner):
+    reason = ResourceMatcher.exclusion(resource, learner)
+    if resource.link_status in {"restricted", "unavailable"}:
+        reason = f"Link check: {resource.link_status}; manual access may differ"
+    notes = [f"Content {resource.availability}; link {resource.link_status}."]
+    if reason:
+        notes.append(reason)
+    if resource.language != learner.language:
+        notes.append(f"Requested language {learner.language}; source language {resource.language}. Translation not assumed.")
+    if resource.reference_only:
+        notes.append("Original page only; no content retrieval or reuse permission required by this workflow.")
+    if resource.title_basis == "publisher_url_label":
+        notes.append("Locator label derived from a publisher URL; the source title and content have not been inspected.")
+    return " ".join(notes), reason is not None
 
 
 class BraveReferenceSearch:
@@ -116,11 +141,12 @@ class LinkVerifier:
 
 
 class ReferenceService:
-    def __init__(self, store, catalog=(), search_provider=None, verifier=None, excluded_providers=()):
+    def __init__(self, store, catalog=(), search_provider=None, verifier=None, excluded_providers=(), included_providers=()):
         self.store, self.catalog = store, list(catalog)
         self.search_provider = search_provider
         self.verifier = verifier or LinkVerifier()
         self.excluded_providers = set(excluded_providers)
+        self.included_providers = set(included_providers)
 
     def add(self, metadata):
         metadata = dict(metadata)
@@ -144,7 +170,15 @@ class ReferenceService:
                 errors.append("Live search is not configured; use BRAVE_SEARCH_API_KEY or import metadata from a connected search tool")
             else:
                 try:
-                    for resource in self.search_provider.search(query, learner.language):
+                    from .sources import sources, source_for_url
+                    domains = [domain for source in sources() if source["id"] in self.included_providers for domain in source["domains"]]
+                    search_query = query + (" (" + " OR ".join("site:" + domain for domain in domains) + ")" if domains else "")
+                    for resource in self.search_provider.search(search_query, learner.language):
+                        resource.provider = source_for_url(resource.url) or resource.provider
+                        if self.included_providers and resource.provider not in self.included_providers:
+                            continue
+                        if query not in resource.concepts:
+                            resource.concepts.append(query)
                         live_urls.add(canonical_link(resource.url))
                         previous = next((r for r in self.store.resources() if r.id == resource.id), None)
                         # Re-discovery must not overwrite reviewed metadata or link checks.
@@ -156,57 +190,57 @@ class ReferenceService:
         for resource in [*self.catalog, *self.store.resources()]:
             if not resource.url or resource.provider in self.excluded_providers:
                 continue
-            coverage = tokens(" ".join([resource.title, *resource.concepts]))
-            wanted = tokens(query)
+            if self.included_providers and resource.provider not in self.included_providers:
+                continue
+            coverage = tokens(" ".join([resource.title, *resource.concepts, resource.section]))
+            wanted = query_terms(query)
             if not wanted or (not wanted.issubset(coverage) and canonical_link(resource.url) not in live_urls):
                 continue
             url = canonical_link(resource.url)
-            found[url] = resource
+            existing = found.get(url)
+            if existing and metadata_confidence(existing) > metadata_confidence(resource):
+                if resource.link_checked_at and resource.link_checked_at > (existing.link_checked_at or ""):
+                    existing = replace(existing, link_status=resource.link_status, link_checked_at=resource.link_checked_at)
+                found[url] = existing
+            else:
+                found[url] = resource
         ranker = RecommendationRanker(self.store)
         # Referral scores express metadata relevance and authority, never learning efficacy.
         from .models import Gap
         gap = Gap(query, "unknown", "Learner has requested this topic; no deficit inferred", None, "Topic request")
         ranked = []
         for resource in found.values():
-            if check_links and learner.online:
-                resource = self.verifier.check(resource)
-                self.store.put(resource)
             score, factors = ranker.score(resource, learner, gap)
             exact_tag = query.casefold() in {c.casefold() for c in resource.concepts}
             if exact_tag and resource.availability == "verified":
                 relevance = 1.
             elif query.casefold() in resource.title.casefold():
                 relevance = .8
-            elif tokens(query).issubset(tokens(resource.title)):
+            elif query_terms(query).issubset(tokens(resource.title)):
                 relevance = .7
             else:
                 relevance = .6 if exact_tag else .4
             factors["concept"] = relevance
             score = round(sum(factors[k] * w for k, w in ranker.weights.items()) / sum(ranker.weights.values()), 4)
-            reason = ResourceMatcher.exclusion(resource, learner)
-            if resource.link_status in {"restricted", "unavailable"}:
-                reason = f"Link check: {resource.link_status}; manual access may differ"
-            if reason is None and resource.cost == "unknown":
-                reason = "Cost and access unverified"
-            notes = [f"Content {resource.availability}; link {resource.link_status}."]
-            if reason:
-                notes.append(reason)
-            if resource.language != learner.language:
-                notes.append(f"Requested language {learner.language}; source language {resource.language}. Translation not assumed.")
-            if resource.reference_only:
-                notes.append("Original page only; no content retrieval or reuse permission required by this workflow.")
+            note, blocked_or_unknown = access_note(resource, learner)
             metadata = asdict(resource)
             metadata["content"] = None
             item = {"resource": metadata, "score": score, "factors": factors,
-                    "access_note": " ".join(notes), "access_blocked_or_unknown": reason is not None,
+                    "access_note": note, "access_blocked_or_unknown": blocked_or_unknown,
                     "why": f"Metadata matches your request for {query}; inspect the original page to confirm the exact coverage.",
                     "section": resource.section,
-                    "activity": f"Open the original link. Locate {query}. State your question first; then write a short explanation and work one example from the relevant section. If access is blocked, use another listed source.",
+                    "activity": (f"Open this {resource.reference_kind} and choose the relevant chapter or lecture for {query} before studying. " if resource.reference_kind in {"course", "book", "catalog"} else "Open the original link. ") + f"Locate {query}. State your question first; then write a short explanation and work one example from the relevant section. If access is blocked, use another listed source.",
                     "follow_up": f"Close the page. Explain {query} in your own words and apply it to a different example; identify any uncertainty for a tutor to check.",
                     "assessment_status": "Self-check only; use a reviewed independent assessment before updating mastery"}
             ranked.append(item)
         # Usable resources first, but permission/access restrictions never discard links.
         ranked.sort(key=lambda r: (r["access_blocked_or_unknown"], -r["score"], r["resource"]["url"]))
+        if check_links and learner.online:
+            for item in ranked[:limit]:
+                resource = self.verifier.check(Resource(**item["resource"]))
+                self.store.put(resource)
+                item["resource"] = asdict(resource)
+                item["access_note"], item["access_blocked_or_unknown"] = access_note(resource, learner)
         return {"status": "references_found" if ranked else "no_references", "query": query,
                 "references": ranked[:limit], "total_matches": len(ranked), "errors": errors,
                 "content_downloaded": False, "mastery_updated": False,

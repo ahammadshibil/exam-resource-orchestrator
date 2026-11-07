@@ -4,6 +4,26 @@ A standalone Python module that turns a diagnosed knowledge gap into a small set
 
 This workspace did not contain the existing Exam Reverse Engineer repository. This package implements Module 16 with integration points; it does not claim to have modified an absent core or implemented Modules 1–15.
 
+## Expanded official sources (v0.3)
+
+The bundled index now adds **9,017 publisher references** beyond HackerTube: **4,790 OpenStax section locators**, **3,483 NPTEL courses**, and **744 MIT OpenCourseWare course/section locators**. These records come from public publisher catalogs and advertised XML sitemaps, not downloaded lessons. Source coverage, dates and limitations are documented in [INDEX_SOURCES.md](docs/INDEX_SOURCES.md).
+
+```powershell
+git pull
+python -m exam_resources sources
+python -m exam_resources references "photosynthesis" --provider openstax
+python -m exam_resources references "linear algebra" --provider nptel
+python -m exam_resources references "probability" --provider mit-ocw
+python -m exam_resources references "photosynthesis" --provider ncert --language hi
+python -m exam_resources references "cell division" --provider diksha --language hi
+```
+
+Repeat `--provider` to include several sources. Exact indexed resources appear under `references`. Official directories appear separately under `discovery_routes`; a route is an instruction to open the original catalog and search manually, not a verified lesson or a query automatically submitted to that site. NCERT, DIKSHA and SWAYAM currently use this manual route. The response states actual catalog coverage and known portal-check limitations. NTA supplies an official examination starting point without assumed current syllabus mappings.
+
+NPTEL course titles are observed catalog metadata. OpenStax/MIT sitemap labels are explicitly marked `publisher_url_label`; the linked page headings and content have not been inspected. Broad course/book/catalog links do not enter the targeted scored tutoring path until an appropriate section is supplied. Search includes section metadata and handles simple question prefixes/linking words; this is lexical matching, not a claim of semantic understanding or complete curriculum coverage.
+
+Provider selectors also constrain optional live search to known official domains and reject unrelated results. Without a key, all bundled indexes and manual discovery routes still work. Link checks are limited to the returned result count and do not fetch teaching-page bodies. Existing reviewed metadata is preserved when an unverified sitemap locator duplicates its URL.
+
 ## Link-first discovery (v0.2)
 
 You can now find and retain references beyond the three scored starter topics. The reference index stores links and metadata, not downloaded teaching content. Missing copying permission does not exclude a link. Known login, cost, age, regional or availability restrictions are disclosed alongside the original URL.
@@ -101,7 +121,7 @@ Supply existing core diagnostics as `Gap` objects with explicit evidence. A syll
 - `--weights FILE`: every factor in `DEFAULT_WEIGHTS`, with finite nonnegative values and a positive total.
 - Python `ProviderRegistry.register(adapter)` / `remove(id)` adds or disables providers. A `ProviderAdapter` exposes `id`, `capabilities`, and `discover(concept)`.
 
-The catalog contains original local practice, OpenStax links, a MIT OCW lecture reference and conservatively marked Khan Academy/PhET candidates. Empty registry slots cover official examinations, NCERT, DIKSHA, SWAYAM, NPTEL, university materials, YouTube, and uploads. These are configurable metadata adapters, not direct platform integrations. Optional Brave web discovery is separate from those adapters. No page scraping is performed.
+The catalog contains original local practice, publisher reference snapshots, the HackerTube metadata index and conservatively marked Khan Academy/PhET candidates. NCERT, DIKSHA, SWAYAM and official examinations have manual discovery routes; university materials, YouTube and uploads remain configurable adapter slots. These are metadata integrations, not external learner-progress integrations. Optional Brave web discovery is separate from those adapters. Catalog metadata is extracted from permitted publisher listings and sitemaps; teaching content is not scraped.
 
 The metadata schema records mapping evidence, prerequisites, formats, language, unknown duration, access, restrictions, license, verification, evidence, quality and learning outcomes. Unknown review quality remains `null`; ranking policy estimates are returned separately as factors. External links are HTTPS-validated syntactically; a URL's existence and current content require separate verification. Seed verification evidence is recorded per resource, and old checks receive a warning after 30 days. Khan video playback and PhET execution are unverified.
 

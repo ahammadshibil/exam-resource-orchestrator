@@ -10,6 +10,10 @@ The default adapters search an authorized local metadata catalog. Discovery catc
 
 `HackerTubeAdapter` exposes the bundled reduced public-export metadata through the same optional registry. Its catalog labels support candidate retrieval; HN scores/counts do not enter ranking. Removing a provider suppresses both its bundled candidates and remembered references. Explicit re-registration re-enables it. The metadata snapshot is packaged as JSONL with per-reference provenance and a third-party attribution notice in the source distribution.
 
+Version 0.3 adds `publisher_references.jsonl`, validated against the provider-domain directory in `sources.json`. Publisher resources use existing catalog adapters; no new content retrieval integration is required. `title_basis` distinguishes source metadata from URL-derived locator labels. `reference_kind` distinguishes sections from broad courses/books/catalogs, which are excluded from targeted tutoring discovery. Optional fields default when reading older resource JSON, preserving database compatibility.
+
+Provider selectors filter both saved metadata and live candidates. Live searches use official-domain query constraints and validate returned URL ownership before assigning a provider identity. `discovery_routes` are separate manual catalog instructions and never pretend to be search results or verified lessons. Deduplication prefers inspected metadata and source-provided titles over weaker locator labels while preserving newer link-status checks. Explicit HEAD requests are bounded to the returned result count.
+
 ## Persistent data model
 
 | Table | Identity | Stored data |

@@ -1,0 +1,130 @@
+{
+  "checked_on": "2026-11-07",
+  "checks": [
+    {
+      "query": "photosynthesis",
+      "requested_provider": "openstax",
+      "status": "references_found",
+      "matches": 3,
+      "top_references": [
+        {
+          "provider": "openstax",
+          "title": "Overview of Photosynthesis — Biology 2e",
+          "url": "https://openstax.org/books/biology-2e/pages/8-1-overview-of-photosynthesis",
+          "title_basis": "source_metadata",
+          "reference_kind": "resource"
+        },
+        {
+          "provider": "openstax",
+          "title": "Publisher URL label: biology 2e / 8 2 the light dependent reactions of photosynthesis",
+          "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+          "title_basis": "publisher_url_label",
+          "reference_kind": "section"
+        }
+      ],
+      "manual_routes": [
+        {
+          "provider": "openstax",
+          "url": "https://openstax.org/subjects",
+          "verified_lesson": false
+        }
+      ],
+      "content_downloaded": false,
+      "mastery_updated": false
+    },
+    {
+      "query": "linear algebra",
+      "requested_provider": "nptel",
+      "status": "references_found",
+      "matches": 18,
+      "top_references": [
+        {
+          "provider": "nptel",
+          "title": "NOC:Linear Algebra Through Geometry",
+          "url": "https://nptel.ac.in/courses/106108482",
+          "title_basis": "source_metadata",
+          "reference_kind": "course"
+        },
+        {
+          "provider": "nptel",
+          "title": "NOC:Applied Linear Algebra",
+          "url": "https://nptel.ac.in/courses/108101371",
+          "title_basis": "source_metadata",
+          "reference_kind": "course"
+        }
+      ],
+      "manual_routes": [
+        {
+          "provider": "nptel",
+          "url": "https://nptel.ac.in/courses",
+          "verified_lesson": false
+        }
+      ],
+      "content_downloaded": false,
+      "mastery_updated": false
+    },
+    {
+      "query": "probability",
+      "requested_provider": "mit-ocw",
+      "status": "references_found",
+      "matches": 26,
+      "top_references": [
+        {
+          "provider": "mit-ocw",
+          "title": "Publisher URL label: 18 01sc single variable calculus fall 2010 / unit 3 the definite integral and its applications / part c average value probability and numerical integration",
+          "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-c-average-value-probability-and-numerical-integration/",
+          "title_basis": "publisher_url_label",
+          "reference_kind": "section"
+        },
+        {
+          "provider": "mit-ocw",
+          "title": "Publisher URL label: 18 01sc single variable calculus fall 2010 / unit 3 the definite integral and its applications / part c average value probability and numerical integration / problem set 8",
+          "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-c-average-value-probability-and-numerical-integration/problem-set-8/",
+          "title_basis": "publisher_url_label",
+          "reference_kind": "section"
+        }
+      ],
+      "manual_routes": [
+        {
+          "provider": "mit-ocw",
+          "url": "https://ocw.mit.edu/search/",
+          "verified_lesson": false
+        }
+      ],
+      "content_downloaded": false,
+      "mastery_updated": false
+    },
+    {
+      "query": "photosynthesis",
+      "requested_provider": "ncert",
+      "status": "discovery_routes_available",
+      "matches": 0,
+      "top_references": [],
+      "manual_routes": [
+        {
+          "provider": "ncert",
+          "url": "https://ncert.nic.in/textbook.php",
+          "verified_lesson": false
+        }
+      ],
+      "content_downloaded": false,
+      "mastery_updated": false
+    },
+    {
+      "query": "cell division",
+      "requested_provider": "diksha",
+      "status": "discovery_routes_available",
+      "matches": 0,
+      "top_references": [],
+      "manual_routes": [
+        {
+          "provider": "diksha",
+          "url": "https://diksha.gov.in/explore",
+          "verified_lesson": false
+        }
+      ],
+      "content_downloaded": false,
+      "mastery_updated": false
+    }
+  ]
+}

@@ -46,7 +46,7 @@ class HackerTubeTests(unittest.TestCase):
         try:
             engine = Orchestrator(store)
             learner = Learner("browser", "unspecified")
-            result = engine.references("linear algebra", learner)
+            result = engine.references("linear algebra", learner, providers=["hackertube"])
             self.assertEqual(result["status"], "references_found")
             self.assertTrue(any(item["resource"]["provider"] == "hackertube" for item in result["references"]))
             self.assertFalse(result["content_downloaded"])
@@ -54,7 +54,7 @@ class HackerTubeTests(unittest.TestCase):
             # A remembered link must not silently reactivate a removed provider.
             store.put(engine.registry.adapters["hackertube"].resources[0])
             engine.registry.remove("hackertube")
-            result = engine.references("linear algebra", learner)
+            result = engine.references("linear algebra", learner, providers=["hackertube"])
             self.assertFalse(any(item["resource"]["provider"] == "hackertube" for item in result["references"]))
         finally:
             store.close()

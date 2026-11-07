@@ -41,8 +41,20 @@ test_search_failure_falls_back_without_logging_token (test_references.ReferenceT
 test_title_relevance_beats_incidental_topic_tag (test_references.ReferenceTests.test_title_relevance_beats_incidental_topic_tag) ... ok
 test_unknown_permission_and_cost_do_not_hide_link (test_references.ReferenceTests.test_unknown_permission_and_cost_do_not_hide_link) ... ok
 test_url_query_and_section_preserved_and_unsafe_schemes_rejected (test_references.ReferenceTests.test_url_query_and_section_preserved_and_unsafe_schemes_rejected) ... ok
+test_broad_course_not_used_as_targeted_intervention (test_sources.PublisherSourceTests.test_broad_course_not_used_as_targeted_intervention) ... ok
+test_checked_and_reviewed_metadata_survives_url_label_duplicate (test_sources.PublisherSourceTests.test_checked_and_reviewed_metadata_survives_url_label_duplicate) ... ok
+test_cli_source_listing (test_sources.PublisherSourceTests.test_cli_source_listing) ... ok
+test_link_checks_bounded_to_returned_limit (test_sources.PublisherSourceTests.test_link_checks_bounded_to_returned_limit) ... ok
+test_live_search_scoped_and_unrelated_results_rejected (test_sources.PublisherSourceTests.test_live_search_scoped_and_unrelated_results_rejected) ... ok
+test_ncert_and_swayam_are_honest_manual_routes (test_sources.PublisherSourceTests.test_ncert_and_swayam_are_honest_manual_routes) ... ok
+test_official_snapshot_integrity_and_coverage (test_sources.PublisherSourceTests.test_official_snapshot_integrity_and_coverage) ... ok
+test_provider_filter_isolation (test_sources.PublisherSourceTests.test_provider_filter_isolation) ... ok
+test_regional_language_portal_is_not_an_invented_lesson (test_sources.PublisherSourceTests.test_regional_language_portal_is_not_an_invented_lesson) ... ok
+test_simple_question_matching_and_unknown_provider (test_sources.PublisherSourceTests.test_simple_question_matching_and_unknown_provider) ... ok
+test_sitemap_labels_do_not_claim_page_titles_or_content (test_sources.PublisherSourceTests.test_sitemap_labels_do_not_claim_page_titles_or_content) ... ok
+test_source_domain_boundaries (test_sources.PublisherSourceTests.test_source_domain_boundaries) ... ok
 
 ----------------------------------------------------------------------
-Ran 43 tests in 16.456s
+Ran 55 tests in 45.746s
 
 OK

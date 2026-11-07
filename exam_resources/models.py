@@ -52,6 +52,8 @@ class Resource:
     reference_only: bool = False
     link_status: str = "unchecked"
     link_checked_at: str | None = None
+    title_basis: str = "source_metadata"
+    reference_kind: str = "resource"
 
     def __post_init__(self):
         if not self.id or not self.provider or not self.concepts or not self.section:
@@ -76,6 +78,10 @@ class Resource:
             raise ValueError("Link-only references need a URL and cannot contain downloaded content")
         if self.link_status not in {"unchecked", "reachable", "restricted", "unavailable", "redirect", "unknown"}:
             raise ValueError("Invalid link status")
+        if self.title_basis not in {"source_metadata", "publisher_url_label"}:
+            raise ValueError("Invalid title basis")
+        if self.reference_kind not in {"resource", "lesson", "section", "course", "book", "catalog"}:
+            raise ValueError("Invalid reference kind")
 
 
 @dataclass

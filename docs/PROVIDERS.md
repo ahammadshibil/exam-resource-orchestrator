@@ -10,7 +10,15 @@ Documentation inspected on 6 November 2026. Documentation verification is separa
 | PhET | Manual Balancing Act link and targeted balance activity | Landing page resolved; simulation execution unverified; no bundled simulation |
 | Gemini Notebook | Opt-in official REST create-notebook and add-source methods | Request-contract tests use injected transport; live credentials unavailable |
 | HackerTube | Bundled, attributed metadata adapter for 6,454 video references | Official export retrieved; no video playback, transcript or content verification |
-| Other categories | Empty configurable catalog adapters | No remote access, supported lesson or API claim |
+| OpenStax/NPTEL/MIT expanded catalogs | 9,017 additional publisher locators and course records | Metadata snapshot only; source-title and URL-label provenance distinguished |
+| NCERT/DIKSHA/SWAYAM/NTA | Explicit manual catalog discovery routes | Not indexed individual lessons or assumed examination mappings |
+| Other categories | Configurable catalog adapters | No remote access, supported lesson or API claim |
+
+## Expanded publisher indexes (v0.3)
+
+The additional catalog contains 4,790 OpenStax section locators, 3,483 NPTEL courses and 744 MIT OCW course/section locators. Source provenance, collection boundaries and portal-check observations are recorded in [INDEX_SOURCES.md](INDEX_SOURCES.md). Publisher robots rules and public advertised sitemaps/listings were checked before collecting metadata. No teaching-page bodies or media were retrieved for these catalogs.
+
+`sources` exposes the official directory URLs and their actual coverage. `references --provider ID` filters indexed results and returns manual catalog routes separately. Source selection also scopes optional live search to official domains; unrelated results are discarded. Unknown license/access still retains the original link. Portal access problems are disclosed: NCERT was unreachable in this environment, DIKSHA responded to HEAD, and SWAYAM's catalog resolved during browsing but rejected HEAD with 405. None of those observations certifies a particular lesson or requested language.
 
 ## Link-first reference mode (v0.2, 7 November 2026)
 

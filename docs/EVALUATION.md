@@ -1,6 +1,6 @@
 # Evaluation framework
 
-Run `python -m unittest discover -s tests -v`. The suite is offline and uses temporary SQLite files. On hosts with a restricted system temp directory, set `EXAM_TEST_TMP` to a writable scratch directory first. Tests currently comprise 43 cases.
+Run `python -m unittest discover -s tests -v`. The suite is offline and uses temporary SQLite files. On hosts with a restricted system temp directory, set `EXAM_TEST_TMP` to a writable scratch directory first. Tests currently comprise 55 cases.
 
 | Acceptance scenario | Verified behavior |
 |---|---|
@@ -20,7 +20,9 @@ The v0.2 reference suite adds arbitrary topics without an authored diagnostic, p
 
 A live HEAD-only check of the seeded OpenStax photosynthesis URL returned a reachable status on 7 November 2026. No response body was read, and the content-verification and licensing fields remained unverified. This check is not a guarantee of access from another learner's account or region.
 
-HackerTube coverage tests validate all 6,454 bundled metadata records, zero rejected records, original-video URL/ID consistency, attribution, absence of teaching content, no assumed language/duration/quality, exclusion of HN scores and summaries, rejection of malformed records, credential-free search, removal of a provider even after a reference has been remembered, and metadata title relevance above incidental tagging. A neural-networks CLI search returned 32 metadata matches in the current snapshot, with no content downloaded and no mastery update. Video playback and examination alignment were not tested.
+HackerTube coverage tests validate all 6,454 bundled metadata records, zero rejected records, original-video URL/ID consistency, attribution, absence of teaching content, no assumed language/duration/quality, exclusion of HN scores and summaries, rejection of malformed records, credential-free search, removal of a provider even after a reference has been remembered, and metadata title relevance above incidental tagging. A v0.2.1 neural-networks CLI search returned 32 metadata matches, with no content downloaded and no mastery update. Video playback and examination alignment were not tested.
+
+Publisher-source tests validate all 9,017 new records, exact per-source counts, URL uniqueness and official-domain ownership, unverified locator labels, provider isolation, manual NCERT/SWAYAM routes, regional-language DIKSHA instructions without invented lessons, domain-spoof rejection, provider-scoped live search contracts, preservation of inspected metadata under URL deduplication, link-check request bounds, simple question matching, unknown-provider rejection, exclusion of broad courses from targeted interventions and CLI source listing. These tests establish metadata and workflow integrity, not continuing accessibility or teaching quality. See [INDEX_SOURCES.md](INDEX_SOURCES.md) for the observed portal/network limitations.
 
 Official external source URLs were checked using browsing during development; runtime tests make no network requests and cannot certify continuing availability. Khan playback and PhET execution remain unverified in seed metadata. Google API requests are contract-tested with an injected transport, not authenticated live. No simulation/license redistribution was tested or attempted.
 
