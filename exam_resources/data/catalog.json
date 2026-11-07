@@ -306,5 +306,47 @@
       "Identify the pivot and perpendicular distance to the force line before calculating torque."
     ],
     "accessibility": []
+  },
+  {
+    "provider": "openstax",
+    "title": "Overview of Photosynthesis — Biology 2e",
+    "url": "https://openstax.org/books/biology-2e/pages/8-1-overview-of-photosynthesis",
+    "concepts": [
+      "photosynthesis"
+    ],
+    "section": "8.1 Overview of Photosynthesis",
+    "language": "en",
+    "availability": "unverified",
+    "license": "Unknown; link only",
+    "evidence": [
+      "Official OpenStax section indexed in web search on 2026-11-07; source body not retrieved by the reference module"
+    ],
+    "permitted_usage": "Recommend the original link; copying permission is not assumed",
+    "id": "ref-557b9b04ad9d95735e8d6a57",
+    "reference_only": true,
+    "publisher": "OpenStax",
+    "format": "text"
+  },
+  {
+    "provider": "mit-ocw",
+    "title": "Lecture 21: Eigenvalues and Eigenvectors — Linear Algebra",
+    "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/resources/lecture-21-eigenvalues-and-eigenvectors-1/",
+    "concepts": [
+      "eigenvalues",
+      "eigenvectors",
+      "linear algebra"
+    ],
+    "section": "Lecture 21: Eigenvalues and Eigenvectors; timestamps not verified",
+    "language": "en",
+    "availability": "unverified",
+    "license": "Unknown; link only",
+    "evidence": [
+      "Official MIT OCW lecture metadata indexed in web search on 2026-11-07; playback not verified"
+    ],
+    "permitted_usage": "Recommend the original link; copying permission is not assumed",
+    "id": "ref-4e0b21207f6a274db977d9b9",
+    "reference_only": true,
+    "publisher": "MIT OpenCourseWare",
+    "format": "video"
   }
 ]

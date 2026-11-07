@@ -2,6 +2,8 @@
 
 Use the Python API or JSON CLI; no web app is required.
 
+For reference requests on any topic, use `references "TOPIC"`. If no saved source matches, use a connected search tool or explicitly configured `--live` discovery, then import a source with `add-reference metadata.json`. Give the learner the original URL, the known section or an honest unknown-section label, the access note, and the suggested active task. Unknown copying permissions are not a reason to withhold an ordinary original-page link. Do not fetch or upload teaching content for this workflow. Optional `--check-links` only checks HTTP status with HEAD; it does not establish lesson correctness. `--offline` browses remembered references without network traffic. Generic reference self-checks do not count as independent mastery assessments.
+
 1. Ask which concept, exam, language, access constraints and study time apply. Retrieve existing host evidence where available. Do not infer a weakness merely from the syllabus or a provider preference.
 2. Run `diagnostic CONCEPT`. Present the prompt and collect an unaided response. Score each diagnostic criterion transparently, with learner or tutor provenance. Run `diagnose INPUT.json` to obtain the evidence-backed gap.
 3. Run `recommend REQUEST.json`. Explain the selected resource's section, why it addresses the observed error, active task, misconception and follow-up. Mention unverified availability or a language mismatch. Show at most two candidates by default.

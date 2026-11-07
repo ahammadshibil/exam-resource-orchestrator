@@ -4,6 +4,33 @@ A standalone Python module that turns a diagnosed knowledge gap into a small set
 
 This workspace did not contain the existing Exam Reverse Engineer repository. This package implements Module 16 with integration points; it does not claim to have modified an absent core or implemented Modules 1–15.
 
+## Link-first discovery (v0.2)
+
+You can now find and retain references beyond the three scored starter topics. The reference index stores links and metadata, not downloaded teaching content. Missing copying permission does not exclude a link. Known login, cost, age, regional or availability restrictions are disclosed alongside the original URL.
+
+```powershell
+git pull
+python -m exam_resources references photosynthesis
+python -m exam_resources references eigenvalues
+python -m exam_resources add-reference examples/reference.json
+python -m exam_resources references photosynthesis --check-links
+```
+
+The first two examples work from the included reference catalog without credentials. Import a link found by Codex, a connected search tool or a human using `add-reference`; it persists in the same SQLite database. Use `--db PATH` before the command to select that database. `references "ANY TOPIC"` searches the titles and topic tags of saved metadata; an empty index does not fabricate results. `--offline` lists remembered links with access warnings without making network requests.
+
+Optional live web discovery uses the [official Brave Search API](https://api-dashboard.search.brave.com/app/documentation/web-search). Configure your own account/key with an appropriate search plan, then explicitly request live discovery:
+
+```powershell
+$env:BRAVE_SEARCH_API_KEY = Read-Host "Brave Search API key" -MaskInput
+python -m exam_resources references "Bayes theorem" --live
+```
+
+Live discovery sends only your query and requested language to the search provider. It saves result titles, URLs and query provenance, not excerpts or page bodies. No search key is bundled, no account is created, and pricing/quotas depend on your provider plan. Without credentials it returns saved matches and an explicit configuration message. Imported references do not require a search subscription.
+
+`--check-links` performs optional HEAD-only requests: no teaching-page GET requests, response-body reads, login attempts, redirect following or content copying. Reachable, restricted, unavailable, redirected and unknown results have separate labels. HEAD success never certifies content correctness, section coverage, cost, license or regional access. HEAD-unsupported sites remain unknown, with their original link intact.
+
+Every referral includes a study task and a closed-book self-check. For arbitrary topics these are general study prompts, **not a validated exam assessment**, and they cannot update mastery. Reviewed topic definitions are still required for the scored `recommend`/`start`/`assess` workflow. Stored references tagged to a reviewed concept also become candidates for that workflow, subject to its existing access filters. Reference mode keeps the link visible even when it cannot be selected for tutoring.
+
 ## Run in under five minutes
 
 Clone the private repository while signed in to GitHub, then enter its directory:
@@ -70,7 +97,7 @@ Supply existing core diagnostics as `Gap` objects with explicit evidence. A syll
 - `--weights FILE`: every factor in `DEFAULT_WEIGHTS`, with finite nonnegative values and a positive total.
 - Python `ProviderRegistry.register(adapter)` / `remove(id)` adds or disables providers. A `ProviderAdapter` exposes `id`, `capabilities`, and `discover(concept)`.
 
-The initial catalog contains original local practice plus OpenStax links and conservatively marked Khan Academy/PhET candidates. Empty registry slots cover official examinations, NCERT, DIKSHA, SWAYAM, NPTEL, MIT OCW, university materials, YouTube, and uploads. These are configurable metadata adapters, **not implemented remote search integrations**. Add verified resources or implement a documented provider API behind the same protocol. No scraping is performed.
+The catalog contains original local practice, OpenStax links, a MIT OCW lecture reference and conservatively marked Khan Academy/PhET candidates. Empty registry slots cover official examinations, NCERT, DIKSHA, SWAYAM, NPTEL, university materials, YouTube, and uploads. These are configurable metadata adapters, not direct platform integrations. Optional Brave web discovery is separate from those adapters. No page scraping is performed.
 
 The metadata schema records mapping evidence, prerequisites, formats, language, unknown duration, access, restrictions, license, verification, evidence, quality and learning outcomes. Unknown review quality remains `null`; ranking policy estimates are returned separately as factors. External links are HTTPS-validated syntactically; a URL's existence and current content require separate verification. Seed verification evidence is recorded per resource, and old checks receive a warning after 30 days. Khan video playback and PhET execution are unverified.
 

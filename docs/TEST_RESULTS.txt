@@ -17,8 +17,27 @@ test_plan_budgets_exam_and_fallback (test_orchestrator.OrchestrationTests.test_p
 test_provider_failure_and_removal (test_orchestrator.OrchestrationTests.test_provider_failure_and_removal) ... ok
 test_unknown_language_is_explicit (test_orchestrator.OrchestrationTests.test_unknown_language_is_explicit) ... ok
 test_unknown_syllabus_concept_does_not_invent_material (test_orchestrator.OrchestrationTests.test_unknown_syllabus_concept_does_not_invent_material) ... ok
+test_arbitrary_topic_reference_without_diagnostic (test_references.ReferenceTests.test_arbitrary_topic_reference_without_diagnostic) ... ok
+test_cli_import_then_reference_unknown_topic (test_references.ReferenceTests.test_cli_import_then_reference_unknown_topic) ... ok
+test_dedup_and_reopen_persist_metadata (test_references.ReferenceTests.test_dedup_and_reopen_persist_metadata) ... ok
+test_forbidden_content_cannot_enter_reference_index (test_references.ReferenceTests.test_forbidden_content_cannot_enter_reference_index) ... ok
+test_head_success_does_not_verify_content_or_license (test_references.ReferenceTests.test_head_success_does_not_verify_content_or_license) ... ok
+test_http_exception_and_timeout_are_conservative (test_references.ReferenceTests.test_http_exception_and_timeout_are_conservative) ... ok
+test_imported_reference_available_to_reviewed_tutoring (test_references.ReferenceTests.test_imported_reference_available_to_reviewed_tutoring) ... ok
+test_missing_credentials_returns_explicit_fallback (test_references.ReferenceTests.test_missing_credentials_returns_explicit_fallback) ... ok
+test_no_network_without_explicit_live_or_check (test_references.ReferenceTests.test_no_network_without_explicit_live_or_check) ... ok
+test_offline_browse_never_checks_links (test_references.ReferenceTests.test_offline_browse_never_checks_links) ... ok
+test_private_addresses_not_requested (test_references.ReferenceTests.test_private_addresses_not_requested) ... ok
+test_rank_usable_links_ahead_of_restricted_ones (test_references.ReferenceTests.test_rank_usable_links_ahead_of_restricted_ones) ... ok
+test_real_head_transport_never_reads_body_or_follows_redirect (test_references.ReferenceTests.test_real_head_transport_never_reads_body_or_follows_redirect) ... ok
+test_rediscovery_preserves_reviewed_metadata (test_references.ReferenceTests.test_rediscovery_preserves_reviewed_metadata) ... ok
+test_restricted_and_dead_links_retained_with_labels (test_references.ReferenceTests.test_restricted_and_dead_links_retained_with_labels) ... ok
+test_search_api_retains_only_metadata_not_snippets (test_references.ReferenceTests.test_search_api_retains_only_metadata_not_snippets) ... ok
+test_search_failure_falls_back_without_logging_token (test_references.ReferenceTests.test_search_failure_falls_back_without_logging_token) ... ok
+test_unknown_permission_and_cost_do_not_hide_link (test_references.ReferenceTests.test_unknown_permission_and_cost_do_not_hide_link) ... ok
+test_url_query_and_section_preserved_and_unsafe_schemes_rejected (test_references.ReferenceTests.test_url_query_and_section_preserved_and_unsafe_schemes_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 19 tests in 1.720s
+Ran 38 tests in 2.823s
 
 OK

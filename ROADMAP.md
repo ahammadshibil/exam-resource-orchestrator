@@ -1,5 +1,14 @@
 # Development roadmap
 
+## v0.2 — link-first reference expansion
+
+- Persistent metadata-only references for arbitrary topics, independent of the starter diagnostic bank.
+- Original URLs retained when content copying permission or access is unknown or restricted.
+- CLI reference import/search, optional official Brave API discovery and HEAD-only link checks.
+- Active study and closed-book self-check prompts without fabricated sections, timestamps or mastery claims.
+- Original-provider seed references for photosynthesis and eigenvalues.
+- 38 passing regression/acceptance tests; live Brave credentials still required for authenticated integration verification.
+
 ## Module 16 — implemented standalone foundation
 
 - Provider registry and optional metadata discovery adapters.

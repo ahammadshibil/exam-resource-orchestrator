@@ -21,6 +21,9 @@ class ResourceDiscovery:
     def discover(self, concept):
         self.errors = []
         found = {}
+        for resource in self.store.resources():
+            if resource.reference_only and concept.casefold() in {c.casefold() for c in resource.concepts}:
+                found[resource.id] = resource
         for name, adapter in self.registry.adapters.items():
             try:
                 for resource in adapter.discover(concept):
@@ -196,6 +199,15 @@ class Orchestrator:
         self.tracker = ActivityTracker(self.store)
         self.evaluator = OutcomeEvaluator(self.store)
 
+    def references(self, query, learner, *, limit=2, live=False, check_links=False, search_provider=None):
+        from .references import ReferenceService
+        catalog = [resource for adapter in self.registry.adapters.values()
+                   for resource in getattr(adapter, "resources", [])]
+        result = ReferenceService(self.store, catalog, search_provider).search(
+            query, learner, limit=limit, live=live, check_links=check_links)
+        result["reviewed_topic_available"] = query in self.topics
+        return result
+
     @staticmethod
     def default_registry():
         registry = ProviderRegistry()
@@ -204,7 +216,8 @@ class Orchestrator:
             registry.register(CatalogAdapter(provider, [r for r in resources if r.provider == provider]))
         # Empty optional categories are extension points, not invented lessons or API claims.
         for provider in ["official", "mit-ocw", "nptel", "swayam", "diksha", "ncert", "university", "youtube", "uploads"]:
-            registry.register(CatalogAdapter(provider))
+            if provider not in registry.adapters:
+                registry.register(CatalogAdapter(provider))
         registry.register(GeminiNotebookAdapter())
         return registry
 

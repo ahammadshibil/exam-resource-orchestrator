@@ -11,6 +11,16 @@ Documentation inspected on 6 November 2026. Documentation verification is separa
 | Gemini Notebook | Opt-in official REST create-notebook and add-source methods | Request-contract tests use injected transport; live credentials unavailable |
 | Other categories | Empty configurable catalog adapters | No remote access, supported lesson or API claim |
 
+## Link-first reference mode (v0.2, 7 November 2026)
+
+`ReferenceService` provides a persistent reference index independent of authored diagnostics. Import original-page metadata with `add-reference` or use optional `BraveReferenceSearch`. The [official Brave documentation](https://api-dashboard.search.brave.com/app/documentation/web-search) describes the search endpoint and subscription-token authentication used by this adapter. Only titles, URLs, query provenance and explicit metadata are retained. Search result snippets, fetched page contents and credentials are not saved. A search result's actual language is unknown until separately confirmed; requesting a language is not proof that the result uses it.
+
+Live search is opt-in and needs a separately configured `BRAVE_SEARCH_API_KEY`; no credential was present during implementation. Ordinary saved-reference search needs no provider account. A connected Codex search tool can supply a title/URL for metadata import instead. The implementation does not scrape search-result HTML or use an unofficial search endpoint.
+
+`LinkVerifier` is an opt-in HEAD-only status checker. It blocks non-public DNS destinations and custom ports, does not follow redirects or bypass restrictions, and never reads response bodies. A HEAD failure is not automatically a broken lesson: unsupported checks, rate limits and network failures remain unknown. Original links survive restriction, unknown-cost and unknown-license conditions with clear access notes. Reference mode does not certify content coverage or feed mastery scores from link clicks or generic self-checks.
+
+New seed references were discovered from official indexed metadata: [OpenStax photosynthesis](https://openstax.org/books/biology-2e/pages/8-1-overview-of-photosynthesis) and [MIT OCW eigenvalues](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/resources/lecture-21-eigenvalues-and-eigenvectors-1/). Content/playback and reuse licenses remain unverified; the reference workflow does not copy either source.
+
 ## Gemini Notebook
 
 The [official API overview](https://developers.google.com/notebook/docs) documents notebook/source management in public preview. This package uses the personal-account API at `https://notebook.googleapis.com/v1`, distinct from the [Enterprise API](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks-sources). The [authentication guide](https://developers.google.com/notebook/docs/authentication) specifies OAuth with notebook scope, account eligibility, initial product sign-in and quota-project configuration. Obtain credentials separately; never save tokens in learner records.

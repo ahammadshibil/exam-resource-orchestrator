@@ -1,6 +1,7 @@
 """JSON input/output CLI suitable for Codex conversational orchestration."""
 import argparse
 import json
+import os
 from pathlib import Path
 from .engine import Orchestrator
 from .models import Gap, Learner, Resource
@@ -20,6 +21,16 @@ def main(argv=None):
     parser.add_argument("--topics", help="JSON concept definitions with diagnostics and unseen assessments")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("providers")
+    reference = sub.add_parser("references", help="Find original-page links for any topic without downloading lessons")
+    reference.add_argument("query")
+    reference.add_argument("--language", default="en")
+    reference.add_argument("--country")
+    reference.add_argument("--limit", type=int, default=2)
+    reference.add_argument("--live", action="store_true", help="Use configured search API; sends only the query and requested language")
+    reference.add_argument("--check-links", action="store_true", help="Opt-in HEAD checks; never download page bodies")
+    reference.add_argument("--offline", action="store_true", help="Browse saved links without network calls")
+    add_reference = sub.add_parser("add-reference", help="Store one link and metadata; no content is fetched")
+    add_reference.add_argument("input", help="JSON resource metadata without id, content, offline or reference_only")
     diagnostic = sub.add_parser("diagnostic")
     diagnostic.add_argument("concept")
     diagnose = sub.add_parser("diagnose")
@@ -55,6 +66,17 @@ def main(argv=None):
                 engine.registry.register(CatalogAdapter(provider, merged.values()))
         if args.command == "providers":
             result = engine.registry.describe()
+        elif args.command == "references":
+            from .references import BraveReferenceSearch
+            key = os.environ.get("BRAVE_SEARCH_API_KEY") if args.live else None
+            provider = BraveReferenceSearch(key) if key else None
+            result = engine.references(args.query, Learner("reference-browser", "unspecified", language=args.language,
+                                      country=args.country, online=not args.offline),
+                                       limit=args.limit, live=args.live, check_links=args.check_links, search_provider=provider)
+        elif args.command == "add-reference":
+            from dataclasses import asdict
+            from .references import ReferenceService
+            result = asdict(ReferenceService(store).add(read(args.input)))
         elif args.command == "diagnostic":
             result = engine.diagnostic(args.concept)
         elif args.command == "diagnose":

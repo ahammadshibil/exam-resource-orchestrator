@@ -49,6 +49,9 @@ class Resource:
     outcomes: list[str] = field(default_factory=list)
     accessibility: list[str] = field(default_factory=list)
     content: str | None = None
+    reference_only: bool = False
+    link_status: str = "unchecked"
+    link_checked_at: str | None = None
 
     def __post_init__(self):
         if not self.id or not self.provider or not self.concepts or not self.section:
@@ -69,6 +72,10 @@ class Resource:
             unit(self.quality)
         if self.minutes is not None and self.minutes <= 0:
             raise ValueError("Duration must be positive")
+        if self.reference_only and (not self.url or self.content is not None or self.offline):
+            raise ValueError("Link-only references need a URL and cannot contain downloaded content")
+        if self.link_status not in {"unchecked", "reachable", "restricted", "unavailable", "redirect", "unknown"}:
+            raise ValueError("Invalid link status")
 
 
 @dataclass

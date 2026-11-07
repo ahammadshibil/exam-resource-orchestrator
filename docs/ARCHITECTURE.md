@@ -4,6 +4,10 @@
 
 The default adapters search an authorized local metadata catalog. Discovery catches ordinary provider availability/metadata failures and exposes the provider error type while continuing other providers. Programming errors are not silently swallowed. Removed providers do not reappear from cached records. The optional Gemini adapter exposes external write methods separately from discovery, with explicit authorization gates.
 
+`ReferenceService` adds a metadata-only referral path for arbitrary topics. It merges catalog and persistent URL records, optionally queries the documented Brave search adapter, and optionally checks link status with HEAD. Reference IDs are deterministic URL hashes; queries and fragments are preserved. Re-discovery does not overwrite reviewed metadata. Unknown permission, cost or access is a visible annotation rather than a reason to hide the original link. Reference responses redact embedded content and never create mastery events. Stored link-only records are also candidates for the reviewed-topic tutoring path when their concept tags match; normal tutoring still applies stricter access and assessment gates.
+
+`Resource` now includes `reference_only`, `link_status` and `link_checked_at`. Its content verification timestamp remains distinct from a link check. SQLite stores resource JSON, so existing databases accept these optional fields without a table migration. Live discovery is never called implicitly by `recommend` or `start`. Per-provider API keys stay in memory/environment rather than being persisted.
+
 ## Persistent data model
 
 | Table | Identity | Stored data |

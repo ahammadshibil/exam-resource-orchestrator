@@ -1,6 +1,6 @@
 # Evaluation framework
 
-Run `python -m unittest discover -s tests -v`. The suite is offline and uses temporary SQLite files. On hosts with a restricted system temp directory, set `EXAM_TEST_TMP` to a writable scratch directory first. Tests currently comprise 19 cases.
+Run `python -m unittest discover -s tests -v`. The suite is offline and uses temporary SQLite files. On hosts with a restricted system temp directory, set `EXAM_TEST_TMP` to a writable scratch directory first. Tests currently comprise 38 cases.
 
 | Acceptance scenario | Verified behavior |
 |---|---|
@@ -15,6 +15,10 @@ Run `python -m unittest discover -s tests -v`. The suite is offline and uses tem
 All seven scenarios check actionable sections/tasks, relevant concept coverage, follow-up without exposed answers, completion/mastery separation, outcome persistence, and reopening the database. These are synthetic scenarios and deterministic workflow checks, not evidence that the activities improve actual exam results. Regional-language assessment is still English. Exam labels do not imply verified syllabus mapping.
 
 Additional tests cover access/prerequisite/time/age/region constraints, provider failure and removal, explicit empty registries, unknown languages/concepts, malformed metadata and numeric scores, ranking configuration, failure-triggered resource changes, unseen-question exhaustion, incorrect assessment IDs, duplicate/early/non-independent assessment rejection, delayed retention persistence, daily plan capacity, notebook authorization and documented REST payloads, and CLI start/completion.
+
+The v0.2 reference suite adds arbitrary topics without an authored diagnostic, permission-unknown and cost-unknown link retention, restricted/dead/redirected link labels, HEAD-only transport with no body reads, rejection of private network destinations by the checker, content/metadata verification separation, reference-only content rejection, persistent deduplication, search contract and metadata-only retention, credential-free imports, no implicit network calls, offline behavior, safe provider-error fallback, access-aware ordering, reviewed-tutoring candidate integration, preservation of reviewed metadata during re-discovery, exact query/fragment preservation and CLI import/search. Seeded photosynthesis and eigenvalue reference commands were smoke-tested. Brave API behavior is transport-contract tested; no live Brave credential was available.
+
+A live HEAD-only check of the seeded OpenStax photosynthesis URL returned a reachable status on 7 November 2026. No response body was read, and the content-verification and licensing fields remained unverified. This check is not a guarantee of access from another learner's account or region.
 
 Official external source URLs were checked using browsing during development; runtime tests make no network requests and cannot certify continuing availability. Khan playback and PhET execution remain unverified in seed metadata. Google API requests are contract-tested with an injected transport, not authenticated live. No simulation/license redistribution was tested or attempted.
 
