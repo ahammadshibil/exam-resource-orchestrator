@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-label="Exam Resource Orchestrator: Find the gap. Find the resource. Build understanding.">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101d30"/><stop offset="1" stop-color="#112b2b"/></linearGradient></defs>
+<rect width="1280" height="360" rx="24" fill="url(#bg)"/>
+<g fill="none" stroke="#62d6b4" stroke-width="2" opacity=".25"><path d="M940 85L1090 135 1000 245 1160 285M1090 135L1180 70M1000 245L900 285M940 85L1000 245"/></g>
+<g fill="#74e3c0"><circle cx="940" cy="85" r="7"/><circle cx="1090" cy="135" r="10"/><circle cx="1000" cy="245" r="8"/><circle cx="1160" cy="285" r="6"/><circle cx="1180" cy="70" r="5"/><circle cx="900" cy="285" r="5"/></g>
+<text x="64" y="70" font-family="Arial,sans-serif" font-size="15" letter-spacing="4" fill="#78ddc3">BUILT ON LEARNHARNESS</text>
+<text x="60" y="140" font-family="Arial,sans-serif" font-size="48" font-weight="700" fill="#f4f7fb">Exam Resource</text>
+<text x="60" y="198" font-family="Arial,sans-serif" font-size="48" font-weight="700" fill="#f4f7fb">Orchestrator</text>
+<text x="64" y="251" font-family="Arial,sans-serif" font-size="22" fill="#c0cbd7">Find the gap. Find the resource. Build understanding.</text>
+<text x="64" y="310" font-family="Arial,sans-serif" font-size="15" fill="#78ddc3">ADAPTIVE TUTORING     /     ORIGINAL LINKS     /     INDEPENDENT PRACTICE</text>
+</svg>
