@@ -70,3 +70,23 @@ test("packaged catalog snapshots match the retained Python module", () => {
 		assert.equal(hash(path.join(ROOT, "resources", "learning-catalog", name)), hash(path.join(ROOT, "..", "exam_resources", "data", name)));
 	}
 });
+
+
+test("torque referral targets moment-arm reasoning and requests a fresh unaided check", async () => {
+	const search = createLearningResourceSearch();
+	const result = await search({ query: "torque", providers: ["openstax"], limit: 1 });
+	assert.equal(result.references.length, 1);
+	const resource = result.references[0]!;
+	assert.equal(resource.url, "https://openstax.org/books/university-physics-volume-1/pages/10-6-torque");
+	assert.match(resource.activity, /radial/i);
+	assert.match(resource.activity, /perpendicular/i);
+	assert.match(resource.activity, /moment arm/i);
+	assert.match(resource.followUp, /different.*earlier/i);
+	assert.match(resource.followUp, /without.*source/i);
+	assert.match(resource.followUp, /before.*answer/i);
+	assert.equal(result.contentDownloaded, false);
+	assert.equal(result.masteryUpdated, false);
+	const unrelated = await search({ query: "photosynthesis", providers: ["openstax"], limit: 1 });
+	assert.ok(unrelated.references.length);
+	assert.doesNotMatch(unrelated.references[0]!.activity, /radial|moment arm/i);
+});

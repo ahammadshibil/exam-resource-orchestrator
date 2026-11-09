@@ -1,5 +1,16 @@
 # Development roadmap
 
+## Current priority: one useful torque flow
+
+**Rule: build a small tool that solves one problem reliably. Expand only after proving it helps.**
+
+The first target is a learner who thinks a larger force must always produce more turning effect. Diagnose from their reasoning, recommend an appropriate section with a moment-arm activity, then assess a fresh unaided response.
+
+Success requires a visible, continuous tutoring session: the diagnosis fits the response; the recommendation addresses it; the study task is concrete; the follow-up differs from earlier questions; and feedback checks the reasoning as well as the number. Resource opening or completion must not become a mastery claim.
+
+Automated checks and the synthetic torque demo verify software behavior. A model-driven session and actual learner usefulness remain unverified. Gather those observations before expanding topic coverage or catalogs. The historical expansion ideas below are deferred, not current commitments.
+
+
 ## v0.3.0 — publisher catalogs beyond HackerTube
 
 - 9,017 original publisher locators: OpenStax 4,790; NPTEL 3,483; MIT OCW 744.

@@ -69,6 +69,9 @@ function loadCatalog(directory: string): { entries: Entry[]; directories: Direct
 }
 
 function referral(row: Entry, input: LearningResourceQuery): LearningReferral {
+	const topic = terms(input.query);
+	const torque = topic.size === 1 && topic.has("torque")
+		&& row.url === "https://openstax.org/books/university-physics-volume-1/pages/10-6-torque";
 	const notes = ["Content and current access must be checked on the original provider."];
 	if (row.cost !== "free") notes.push(`Cost: ${row.cost ?? "unknown"}.`);
 	if (row.requirements?.length) notes.push(`Requires: ${row.requirements.join(", ")}.`);
@@ -84,8 +87,12 @@ function referral(row: Entry, input: LearningResourceQuery): LearningReferral {
 		kind: row.reference_kind ?? "resource", titleBasis: row.title_basis ?? "source_metadata",
 		language: row.language ?? "und", license: row.license ?? "Unknown; link only", evidence: row.evidence ?? [],
 		accessNote: notes.join(" "),
-		activity: `Open the original source and locate ${input.query}. For a whole course/book, select a relevant section first. Predict a result, explain it in your own words, and work one example. Use another source if access is blocked.`,
-		followUp: `Return for a fresh problem on ${input.query} without the source open. Opening a link or reporting completion is not mastery.`,
+		activity: torque
+			? "Open section 10.6. Draw the pivot and force line for equal radial and perpendicular pushes at the same distance. Predict which produces more turning effect before calculating. Mark each perpendicular moment arm, then use r F sin(theta) to check your prediction. Explain why force magnitude alone is insufficient. If the source is blocked, ask the tutor for an alternative; opening the link is not completion of the task."
+			: `Open the original source and locate ${input.query}. For a whole course/book, select a relevant section first. Predict a result, explain it in your own words, and work one example. Use another source if access is blocked.`,
+		followUp: torque
+			? "After the learner returns, pose a fresh unaided problem comparing a smaller oblique force with a larger force whose line passes through the pivot. Use different magnitudes, distances and angles from earlier questions. Ask for a prediction, a sketch of the moment arm and a calculation without the source open. Collect the response before showing an answer or rubric. Assess both the numerical result and why the radial force has zero torque; reading completion is not mastery."
+			: `Return for a fresh problem on ${input.query} without the source open. Opening a link or reporting completion is not mastery.`,
 	};
 }
 
