@@ -80,6 +80,11 @@ for (const extra of ["dist", path.join("node_modules", "electron")]) {
 // 3) Sanity: the runtime-read prompt assets must be present (the teacher
 //    agent reads them from disk at request time).
 for (const asset of [
+	path.join("resources", "learning-catalog", "catalog.json"),
+	path.join("resources", "learning-catalog", "sources.json"),
+	path.join("resources", "learning-catalog", "hackertube.jsonl"),
+	path.join("resources", "learning-catalog", "publisher_references.jsonl"),
+	path.join("resources", "learning-catalog", "THIRD_PARTY_NOTICES.md"),
 	path.join("src", "agent", "system-prompt.md"),
 	path.join("src", "agent", "prompts", "teacher", "20-teaching.md"),
 ]) {

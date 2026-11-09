@@ -34,6 +34,9 @@ import { collectToolCallIds } from "./pi/call-ids.ts";
 import { providerEventNote } from "../agent/provider-events.ts";
 import { effectiveSettings, stores } from "./stores.ts";
 import { searchAvailable, searchProvider } from "./search.ts";
+import { createLearningResourceSearch } from "./learning-resources.ts";
+
+const learningResources = createLearningResourceSearch(undefined, searchProvider);
 import { providerKeyPresent } from "./keys.ts";
 import { CLAUDE_CODE_PROVIDER } from "../core/contracts/claude-code.ts";
 import {
@@ -471,6 +474,7 @@ export async function handleChatInput(
 		: record.kind === "practice"
 			? createPracticeAgent(
 					{
+						learningResources,
 						chatId,
 						chatStore: stores.chatStore,
 						// TARGET VALIDATION (owner round 9): the practice tools read the
@@ -495,6 +499,7 @@ export async function handleChatInput(
 			: teaching
 			? createTeacherAgent(
 					{
+						learningResources,
 						chatId,
 						chatStore: stores.chatStore,
 						jobStore: stores.jobStore,
@@ -507,6 +512,7 @@ export async function handleChatInput(
 				)
 			: createProberAgent(
 					{
+						learningResources,
 						chatId,
 						chatStore: stores.chatStore,
 						deliver: (steer) => void deliverJobResult(steer),

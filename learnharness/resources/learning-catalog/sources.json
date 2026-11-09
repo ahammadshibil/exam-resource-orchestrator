@@ -1,0 +1,108 @@
+[
+  {
+    "id": "openstax",
+    "name": "OpenStax",
+    "domains": [
+      "openstax.org"
+    ],
+    "catalog_url": "https://openstax.org/subjects",
+    "instruction": "Choose a subject and book, then inspect its contents for the requested topic.",
+    "coverage": "Bundled publisher section locators; labels derived from sitemap URLs are explicitly marked."
+  },
+  {
+    "id": "nptel",
+    "name": "NPTEL",
+    "domains": [
+      "nptel.ac.in"
+    ],
+    "catalog_url": "https://nptel.ac.in/courses",
+    "instruction": "Search the course title or discipline; open a course and locate the relevant lecture. Check language and enrollment requirements.",
+    "coverage": "Bundled course-title metadata; individual lecture coverage and current availability unverified.",
+    "catalog_observation": "Public catalog metadata observed on 2026-11-07; one sample course returned HTTP 200 to HEAD."
+  },
+  {
+    "id": "mit-ocw",
+    "name": "MIT OpenCourseWare",
+    "domains": [
+      "ocw.mit.edu"
+    ],
+    "catalog_url": "https://ocw.mit.edu/search/",
+    "instruction": "Search the topic, select a course and then its relevant reading or lecture. Check prerequisites.",
+    "coverage": "Bundled course and section locators from selected official course sitemaps."
+  },
+  {
+    "id": "ncert",
+    "name": "NCERT textbooks",
+    "domains": [
+      "ncert.nic.in"
+    ],
+    "catalog_url": "https://ncert.nic.in/textbook.php",
+    "instruction": "Select the class, subject, book and language; locate the matching chapter. A portal link is not a verified chapter recommendation.",
+    "coverage": "Manual textbook catalog route; individual chapters not indexed. Portal access may vary.",
+    "catalog_observation": "Portal access failed in this environment on 2026-11-07; original official link retained as unverified."
+  },
+  {
+    "id": "diksha",
+    "name": "DIKSHA",
+    "domains": [
+      "diksha.gov.in"
+    ],
+    "catalog_url": "https://diksha.gov.in/explore",
+    "instruction": "Select board, grade, subject and requested language, then search the topic. Check any sign-in requirements.",
+    "coverage": "Manual curriculum and regional-language discovery route; specific items not indexed.",
+    "catalog_observation": "Explore route returned HTTP 200 to HEAD on 2026-11-07; individual resources not inspected."
+  },
+  {
+    "id": "swayam",
+    "name": "SWAYAM",
+    "domains": [
+      "swayam.gov.in",
+      "swayam2.ac.in"
+    ],
+    "catalog_url": "https://swayam.gov.in/explorer",
+    "instruction": "Search the course catalog and check language, prerequisites, session dates and enrollment. Certificate fees and course access can differ.",
+    "coverage": "Manual course catalog route; current enrollment and individual lessons not indexed.",
+    "catalog_observation": "Catalog resolved in browsing on 2026-11-07; HEAD returned 405 and is unsupported, not evidence of a broken site."
+  },
+  {
+    "id": "khan",
+    "name": "Khan Academy",
+    "domains": [
+      "khanacademy.org"
+    ],
+    "catalog_url": "https://www.khanacademy.org/",
+    "instruction": "Choose the subject and course, then locate the requested topic and available language. Return for independent practice.",
+    "coverage": "Starter lesson references plus manual catalog navigation."
+  },
+  {
+    "id": "phet",
+    "name": "PhET",
+    "domains": [
+      "phet.colorado.edu"
+    ],
+    "catalog_url": "https://phet.colorado.edu/",
+    "instruction": "Browse simulations by subject and language. Check that the simulation models the requested concept before beginning.",
+    "coverage": "Starter simulation reference plus manual catalog navigation."
+  },
+  {
+    "id": "official",
+    "name": "National Testing Agency",
+    "domains": [
+      "nta.ac.in",
+      "nta.nic.in"
+    ],
+    "catalog_url": "https://nta.ac.in/",
+    "instruction": "Select the relevant examination and its official current syllabus or information bulletin. Verify the examination year before mapping a resource.",
+    "coverage": "Official examination discovery route; no claim of verified current JEE or NEET syllabus mappings."
+  },
+  {
+    "id": "hackertube",
+    "name": "HackerTube",
+    "domains": [
+      "hackertube.org"
+    ],
+    "catalog_url": "https://hackertube.org/",
+    "instruction": "Search the requested topic and inspect the original video's relevance and prerequisites.",
+    "coverage": "Bundled attributed video metadata; playback and educational accuracy unverified."
+  }
+]

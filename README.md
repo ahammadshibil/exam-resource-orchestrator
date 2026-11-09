@@ -1,4 +1,18 @@
-# Exam Resource Orchestrator — Module 16
+# Exam Resource Orchestrator + LearnHarness
+
+The integration branch includes the full [LearnHarness](https://github.com/amosblomqvist/learnharness) tutoring application under `learnharness/`, connected to our publisher and HackerTube resource catalogs through a native agent tool. It preserves the upstream probing, planning, teaching, practice and knowledge-graph workflows. The Python API/CLI below remains independently usable.
+
+To run the combined app with Node 26 installed:
+
+```powershell
+cd learnharness
+npm ci
+npm run dev -- --hostname 127.0.0.1
+```
+
+Open `http://127.0.0.1:3000`, configure your model in settings, and start a lesson. See [integration setup, boundaries and verification](learnharness/UPSTREAM_INTEGRATION.md). No model credentials or learner data are bundled. The app's `learning_resources` tool searches the same metadata locally and supplies original links plus active-study and assessment instructions.
+
+## Standalone Python Module 16
 
 A standalone Python module that turns a diagnosed knowledge gap into a small set of learning prescriptions, then records independent assessment results locally. Python 3.11+; no runtime dependencies, mandatory external provider, model service, or web application.
 
