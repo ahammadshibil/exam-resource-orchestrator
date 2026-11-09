@@ -28,6 +28,9 @@ function withPayload(test: (fixture: {
 		write(path.join("public", "asset.txt"));
 		write(path.join(STANDALONE, PROMPT));
 		write(path.join(STANDALONE, "src", "agent", "prompts", "teacher", "20-teaching.md"));
+		for (const asset of ["catalog.json", "sources.json", "hackertube.jsonl", "publisher_references.jsonl", "THIRD_PARTY_NOTICES.md"]) {
+			write(path.join(STANDALONE, "resources", "learning-catalog", asset));
+		}
 		test({ root, write, run: () => spawnSync(process.execPath, [path.join(root, "scripts", "build-server.mjs")], {
 			cwd: root, encoding: "utf8", timeout: 10_000,
 		}) });
@@ -92,5 +95,16 @@ describe("desktop standalone payload", () => {
 			assert.equal(result.status, 1);
 			assert.match(String(result.stderr), /prompt asset missing/);
 		});
+	});
+
+	it("refuses a package that omits the learning catalog or its attribution", () => {
+		for (const asset of ["catalog.json", "sources.json", "hackertube.jsonl", "publisher_references.jsonl", "THIRD_PARTY_NOTICES.md"]) {
+			withPayload(({ root, run }) => {
+				fs.rmSync(path.join(root, STANDALONE, "resources", "learning-catalog", asset));
+				const result = run();
+				assert.equal(result.status, 1);
+				assert.match(String(result.stderr), /learning catalog asset missing/);
+			});
+		}
 	});
 });

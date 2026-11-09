@@ -2,12 +2,16 @@ name: LearnHarness integration
 
 on:
   push:
-    branches: [codex/learnharness-integration]
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: learnharness-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   python:

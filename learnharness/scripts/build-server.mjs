@@ -89,7 +89,8 @@ for (const asset of [
 	path.join("src", "agent", "prompts", "teacher", "20-teaching.md"),
 ]) {
 	if (!exists(path.join(STANDALONE, asset))) {
-		console.error(`[build-server] prompt asset missing from the trace: ${asset}`);
+		const kind = asset.startsWith("resources") ? "learning catalog" : "prompt";
+		console.error(`[build-server] ${kind} asset missing from the trace: ${asset}`);
 		process.exit(1);
 	}
 }
