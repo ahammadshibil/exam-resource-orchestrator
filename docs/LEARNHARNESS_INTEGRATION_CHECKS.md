@@ -8,6 +8,7 @@ Local verification on Windows, Node 24.2.0:
 - ESLint: zero errors; one existing `source-name-ui.test.tsx` warning about `<head>`.
 - Targeted integration/agent/question/practice/prompt/graph/tool regressions: 148 tests passed, zero failures.
 - Payload and credential-safety fixtures: 11 tests passed, including missing catalog/attribution rejection.
+- Tracing-policy fixtures: 8 tests passed, with the explicit public catalog include and unchanged secret/data exclusions.
 - Original Python suite: 55 tests passed.
 - Production Next.js build: passed.
 - Native provider-runtime smoke: all 10 native chat implementations evaluated offline; zero network attempts.
