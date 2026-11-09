@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740" role="img" aria-label="Torque demo results: recognition gap, OpenStax referral, mastery unset after completion, simulated assessment demonstrated once">
+<rect width="1200" height="740" rx="20" fill="#0c1421"/>
+<g font-family="Arial,sans-serif"><text x="48" y="52" fill="#82d8c1" font-size="14" letter-spacing="2">EXAM RESOURCE ORCHESTRATOR / TORQUE WALKTHROUGH</text>
+<text x="48" y="108" fill="#eef5ff" font-size="34" font-weight="700">From a misconception to a fresh attempt.</text>
+<text x="48" y="143" fill="#aabdd3" font-size="16">Generated from real engine output. Synthetic learner evidence. No AI model invoked.</text>
+<rect x="48" y="177" width="1104" height="139" rx="12" fill="#16253a"/>
+<text x="72" y="208" fill="#82d8c1" font-size="13">01 / FIND THE GAP</text><text x="72" y="243" fill="#eef5ff" font-size="22">Force magnitude alone does not determine turning effect.</text>
+<text x="72" y="280" fill="#c4d1e2" font-size="17">Diagnostic: recognition gap / 1 of 3 supplied criteria met</text>
+<rect x="48" y="334" width="1104" height="151" rx="12" fill="#16253a"/>
+<text x="72" y="366" fill="#82d8c1" font-size="13">02 / REAL TYPESCRIPT CATALOG RESULT</text><text x="72" y="404" fill="#eef5ff" font-size="23">Torque, University Physics Volume 1</text>
+<text x="72" y="438" fill="#9adcf6" font-size="15">https://openstax.org/books/university-physics-volume-1/pages/10-6-torque</text><text x="72" y="465" fill="#c4d1e2" font-size="15">Original link + study task + follow-up / Content downloaded: false / Mastery updated: false</text>
+<rect x="48" y="503" width="1104" height="153" rx="12" fill="#16253a"/>
+<text x="72" y="535" fill="#82d8c1" font-size="13">03 / SEPARATE PYTHON ASSESSMENT ENGINE</text><text x="72" y="572" fill="#eef5ff" font-size="23">After study completion: mastery = null</text>
+<text x="72" y="607" fill="#c4d1e2" font-size="17">After simulated rubric assessment: demonstrated_once / 3 of 3 supplied marks</text>
+<text x="72" y="636" fill="#c4d1e2" font-size="15">No causal claim. No synchronization with LearnHarness graph or sessions.</text>
+<text x="48" y="700" fill="#aabdd3" font-size="14">Documentation illustration, not a product screenshot / Reproduce: python scripts/demo_torque.py</text></g></svg>

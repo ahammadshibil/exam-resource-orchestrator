@@ -23,6 +23,24 @@ You know the topic you want to learn. The harder questions are **what you are mi
 
 Exam Resource Orchestrator connects [LearnHarness](https://github.com/amosblomqvist/learnharness)'s adaptive teaching and practice agents to a catalog of **15,471 learning references**. Start with your current understanding, work through a lesson, follow an original source when useful, and come back to try a fresh problem.
 
+## See our integration in action
+
+![Torque demo: a real OpenStax referral and assessment-engine results, with synthetic learner evidence](docs/assets/torque-demo-results.svg)
+
+**Reproduce this result:** follow the [torque walkthrough](docs/TORQUE_WALKTHROUGH.md), or run `python scripts/demo_torque.py` after installing the app dependencies. Open the generated `docs/demo/index.html` to step through the example.
+
+*Generated documentation visual from real code output, with synthetic learner responses and supplied rubric marks. No AI model was invoked; this is not a product screenshot or evidence of learning effectiveness.*
+
+## What this project adds
+
+| LearnHarness foundation | Added in this repository |
+| --- | --- |
+| Adaptive probing, teaching and practice agents | A native `learning_resources` tool available in all three phases |
+| Teaching UI, lesson planning and knowledge graph | Publisher and HackerTube metadata catalogs with original links and access caveats |
+| Model connections, research and file capabilities | Study-task and follow-up guidance attached to resource referrals |
+| Local session and graph storage | A separate Python diagnostic, prescription and rubric-assessment engine |
+| Upstream tests and packaging | Catalog asset tracing, integration tests and a reproducible torque demo |
+
 ## See the teaching experience
 
 ![Teaching interface inherited from LearnHarness, showing a gradient-descent lesson, prediction question, confidence slider, reasoning field and lesson plan](learnharness/docs/assets/teaching-session.png)
@@ -118,6 +136,7 @@ The example diagnostic is synthetic. Use real diagnostic responses before making
 
 | I want to… | Read this |
 | --- | --- |
+| Try a reproducible worked example | [Torque walkthrough](docs/TORQUE_WALKTHROUGH.md) |
 | Configure models and start a session | [Getting started](learnharness/docs/getting-started.md) |
 | Use a custom or local model endpoint | [Custom providers](learnharness/docs/custom-providers.md) |
 | Understand what this integration adds | [Integration guide](learnharness/UPSTREAM_INTEGRATION.md) |

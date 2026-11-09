@@ -1,0 +1,69 @@
+{
+  "synthetic": true,
+  "modelInvoked": false,
+  "liveSearch": false,
+  "diagnostic": {
+    "prompt": "A force acts along a rod toward its pivot. Does it turn the rod? Explain how you would find the moment arm, then calculate torque for a perpendicular 4 N force at 0.5 m.",
+    "response": "The perpendicular 4 N force at 0.5 m gives 2 N m. A larger force must turn it more, even if it points through the pivot.",
+    "marks": [
+      false,
+      false,
+      true
+    ],
+    "gap": {
+      "concept": "torque",
+      "kind": "recognition",
+      "misconception": "A larger force always produces a larger turning effect, regardless of its line of action",
+      "baseline": 0.3333333333333333,
+      "evidence": "{\"response\": \"The perpendicular 4 N force at 0.5 m gives 2 N m. A larger force must turn it more, even if it points through the pivot.\", \"marks\": [false, false, true], \"basis\": \"explicit rubric; tutor or learner scored\"}",
+      "confirmed": true
+    }
+  },
+  "resourceTool": {
+    "query": "torque",
+    "references": [
+      {
+        "title": "Torque, University Physics Volume 1",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/10-6-torque",
+        "provider": "openstax",
+        "section": "10.6 Torque: definition, force angle and moment arm",
+        "kind": "resource",
+        "titleBasis": "source_metadata",
+        "language": "en",
+        "license": "See source-specific terms; link only",
+        "evidence": [
+          "Content inspected in official section on 2026-11-06"
+        ],
+        "accessNote": "Content and current access must be checked on the original provider.",
+        "activity": "Open the original source and locate torque. For a whole course/book, select a relevant section first. Predict a result, explain it in your own words, and work one example. Use another source if access is blocked.",
+        "followUp": "Return for a fresh problem on torque without the source open. Opening a link or reporting completion is not mastery."
+      }
+    ],
+    "discoveryRoutes": [
+      {
+        "provider": "openstax",
+        "url": "https://openstax.org/subjects",
+        "instruction": "Choose a subject and book, then inspect its contents for the requested topic.",
+        "coverage": "Bundled publisher section locators; labels derived from sitemap URLs are explicitly marked."
+      }
+    ],
+    "totalMatches": 4,
+    "warnings": [],
+    "contentDownloaded": false,
+    "masteryUpdated": false
+  },
+  "assessment": {
+    "prompt": "A 0.4 m spanner receives 15 N at 30 degrees to its length. Find torque magnitude and compare with the same force directed along the spanner. Explain the difference.",
+    "syntheticResponse": "3 N m; along the spanner gives zero because its force line passes through the pivot.",
+    "suppliedMarks": [
+      true,
+      true,
+      true
+    ],
+    "masteryAfterCompletion": null,
+    "score": 1.0,
+    "status": "demonstrated_once",
+    "causalAttribution": false
+  },
+  "boundary": "Native TypeScript catalog and standalone Python assessment run separately. This does not synchronize LearnHarness sessions or graph with Python history."
+}

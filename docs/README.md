@@ -2,6 +2,8 @@
 
 ## Start here
 
+- [Reproducible torque walkthrough](TORQUE_WALKTHROUGH.md) — real tool output, synthetic learner evidence and model setup.
+
 - [Project overview and screenshots](../README.md)
 - [Tutoring app setup](../learnharness/docs/getting-started.md)
 - [Our LearnHarness integration](../learnharness/UPSTREAM_INTEGRATION.md)

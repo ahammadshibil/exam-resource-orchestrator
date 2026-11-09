@@ -59,7 +59,7 @@ Every referral includes a study task and a closed-book self-check. For arbitrary
 
 ## Run in under five minutes
 
-Clone the private repository while signed in to GitHub, then enter its directory:
+Clone the public repository, then enter its directory:
 
 ```powershell
 git clone https://github.com/ahammadshibil/exam-resource-orchestrator.git

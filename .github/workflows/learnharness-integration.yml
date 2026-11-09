@@ -38,6 +38,8 @@ jobs:
           cache: npm
           cache-dependency-path: learnharness/package-lock.json
       - run: npm ci
+      - name: Reproduce the documented torque demo
+        run: python ../scripts/demo_torque.py
       - run: npm run typecheck
       - run: npm test
       - run: npm run lint
